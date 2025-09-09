@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
     <style>
         html {
             font-family: "Lexend", sans-serif;
@@ -13,51 +13,36 @@
         }
 
         .flex {
+            display: flex;
+            gap: 10px;
         }
+        
 
         .color-box {
             height: 100px;
             width: 100px;
         }
 
-        box#1 {
-        background-color: #E8DDB5;
-        }
-        box#2 {
-        background-color: #57A773;
-        }
-        box#3 {
-        background-color: #95B8D1;
-        }
-        box#4 {
-        background-color: #B5838D;
-        }
-        box#5 {
-        background-color: #E5989B;
-        }
+        #box1 { background-color: #E8DDB5; }
+        #box2 { background-color: #57A773; }
+        #box3 { background-color: #95B8D1; }
+        #box4 { background-color: #B5838D; }
+        #box5 { background-color: #E5989B; }
 
-        h5 {
-            font-size: 12px;
-         }
-        h4 {
-            font-size: 16px;
-        }
-        h3 {
-            font-size: 20px;
-         }
-        h2 {
-            font-size: 24px;
-         }
-        h1 {
-            font-size: 30px;
-         }   
+    h1 { font-size: 30px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 16px; }
+    h5 { font-size: 12px; } 
+        
         a {
-            text-decoration: none;
-            color: #E8DDB5
-            }
+        text-decoration: none;
+        color: #E8DDB5
+        }
             
         a:hover {
-    }
+        text-decoration: underline;
+        }
 
     </style>
 </head>
@@ -73,6 +58,7 @@
     <h3>Heading 3</h3>
 
     <p>This is paragraph text</p>
+    <a href="#">This is a link</a>
 
 </body>
 </html>
