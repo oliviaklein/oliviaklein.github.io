@@ -11,6 +11,7 @@
     --light-color2: #ECE4B7;
     }
 
+
 * {
     margin: 0; 
     padding: 0; 
@@ -94,11 +95,30 @@ section{
     gap: 8px;
 }
 
+
+.nameImageContainer {
+    max-width: auto;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1px;
+}
+
+.nameImageContainer img {
+    width: 70%;
+    height: auto;
+}
+
 .statsContainer {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     gap: 24px;
+}
+
+.statsContainer2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .imgContainer{
@@ -210,5 +230,11 @@ PROJECT HOME PAGE, MAY REMOVE
     .aboutMe {
         width: 80%;
         margin-right: auto;
+    }
+}
+
+@media (min-width: 640px) {
+    .statsContainer2 {
+        flex-direction: row;
     }
 }
