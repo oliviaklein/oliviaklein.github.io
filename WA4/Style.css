@@ -1,22 +1,41 @@
 :root{
-    --bg-color: #B6D094;
-    --primary-color: #202B46;
-    --secondary-color: #131A2A;
-    --accent-color1: #E5989B;
-    --accent-color2: #B5838D;
-    --accent-color3: #7D7461;
-    --highlight-color: #95B8D1;
-    --third-color: #426A5A;
-    --light-color1: #D6D4A0;
-    --light-color2: #ECE4B7;
+    --bg-color: #EEEBD3;
+    --black: #000000;
+    --grey: #738290 ;
+    --blue: #456990;
+    --pink: #F45B69;
+    --light-accent-pink: #E78F8E;
+    --dark-accent-pink: #D35269;
+    --old-rose: #CC7E85;
+    --brown: #A18276;
+    --light-purple: #B08EA2;
+    --purple: #B185A7;
+    --light-green: #709775;
+    --green: #717744;
+
+    --arrow: #EE7DD3;
+    --blue: #1982C4;
+    --yellow: #FFED65;
+    --muted-green: #8D9F87;
+    --green: #62A87C;
+    --green2: #7EA16B;
+    --dark-green: #32936F;
+    --eggshell: #EEEBD3;
     }
 
 
+
+
+
+
+
+
+    /* base */
 * {
     margin: 0; 
     padding: 0; 
     box-sizing: border-box;
-    font-family: lexend, sans-serif;
+    font-family: leapistone, sans-serif;
     transition-duration: 200ms;
  }
 
@@ -34,6 +53,15 @@ body {
     color: var(--secondary-color); 
     }
 
+
+
+
+
+
+
+
+    /* page width setting */
+
 header, 
 main, 
 footer {
@@ -46,16 +74,41 @@ p {
     font-size: 1.05em;
 }
 
+
+
+
+
+
+
+
+    /* HEADER BAR */
+
 header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 14px;
-        background-color: white;   /* white bar */
+        background-color: #62A87C; 
         padding: 15px 20px;
-        border-bottom: 1px solid #ddd; /* optional line under bar */
+        border-bottom: 1px solid #000000; /* line under bar */
 }
 
+/* NOT IN USE---- WIDTH OF BAR  */
+/* body > header {
+  max-width: none;
+  width: 100%;
+}
+
+/* Centered text */
+body > header > * {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+    /* nav links */
 
 nav {
     color: var(--secondary-color);
@@ -78,6 +131,16 @@ nav a:hover {
     opacity: 0.7;
 }
 
+
+
+
+
+
+
+
+
+    /* main layout stacks */
+
 main, 
 section, 
 .nameContainer {
@@ -97,7 +160,6 @@ section{
 
 
 
-
 .nameContainer{
     gap: 8px;
 }
@@ -105,6 +167,14 @@ section{
 
 
 
+
+
+
+
+
+
+
+    /* name image block */
 
 .nameImageContainer {
     max-width: auto;
@@ -122,6 +192,9 @@ section{
 
 
 
+
+    /* stats blocks */
+
 .statsContainer {
     display: flex;
     flex-direction: row;
@@ -130,15 +203,21 @@ section{
 }
 
 .statsContainer2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;  /* center the cluster */
+  align-items: center;
+  gap: 10px;
+  overflow: visible;        /* let daisies poke outside */
 }
 
 
 
 
 
+
+
+
+    /* linkedin image container */
 
 .imgContainer{
     border-radius: 100%;
@@ -155,6 +234,10 @@ section{
 
 
 
+
+
+
+    /* stats list styles */
 
 .stats {
     display: flex;
@@ -183,6 +266,17 @@ section{
     line-height: 1.5em;
 }
 
+
+
+
+
+
+
+
+
+
+    /* CTA link row */
+
 .outreach {
     display: flex;
     align-items: center;
@@ -196,6 +290,16 @@ section{
     opacity: 0.7;
     color: var(--highlight-color);
 }
+
+
+
+
+
+
+
+
+
+    /* project list styles */
 
 .projectContainer {
     display: flex;
@@ -215,31 +319,176 @@ section{
 
 
 
-PROJECT HOME PAGE, MAY REMOVE
-.projectItem div:first-child {
-   display: flex;
-   flex-direction: column;
-   gap: 14px;
+
+
+/*FlowerBackground Photo*/
+
+.flowerBackgroundContainer{
+    max-width: auto;
 }
 
-.projectItem div:last-child {
-    aspect-ratio: 16/9;
-    max-width: 30%;
-    overflow: hidden;
-}
-
-.projectItem div:last-child img {
+.flowerBackgroundContainer img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
 }
-PROJECT HOME PAGE, MAY REMOVE
 
 
 
 
 
+
+
+
+
+
+
+/*  Olivia name + daisy cluster */
+
+
+/* Name Title */
+.nameCluster {
+  position: relative;
+  display: inline-block; /* size = name image */
+  overflow: visible;
+}
+.name-logo {
+  display: block;
+  width: min(90vw, 560px); /* bigger than before; tweak as you like */
+  height: auto;
+  position: relative;
+  z-index: 2; /* keep name above daisies if they overlap */
+}
+
+/* Daisy placements */
+
+.daisy {
+  position: absolute;
+  z-index: 1;              /* around/behind the name but visible */
+  pointer-events: none;    /* don't block mouse */
+  transform-origin: center;
+  filter: drop-shadow(0 6px 6px rgba(0,0,0,.08));
+  opacity: .99;
+}
+.d1 { width: 18%; top: -26%; left: -14%;  transform: rotate(-12deg); }
+.d3 { width: 12%; top:  10%; right: -12%; transform: rotate(-20deg); }
+.d4 { width: 15%; top:  46%; right: -10%; transform: rotate(-15deg); }
+.d6 { width: 11%; top:   32%; left:  -8%; transform: rotate( 18deg); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stacked flower background + overlays */
+.flowerStack {
+  position: relative;
+  max-width: 700px;     /* matches your page width cap */
+  margin: 24px auto;    /* center in the page flow */
+  overflow: visible;    /* allow overlays to poke outside */
+}
+
+.flower-background {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 6px solid #62A87C; 
+}
+
+/* Shared overlay styles */
+.overlay {
+  position: absolute;
+  width: 32%;           /* smaller than the background */
+  height: auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+  border: 6px solid #62A87C; 
+}
+
+/* Left position */
+.overlay-left {
+  bottom: -275px;        /* more negative, more down*/
+  left: 20%;
+  width: 32%;
+  z-index: 2;           /* above background*/
+}
+
+/* Right overlay: staggered above both */
+.overlay-right {
+  bottom: -325px;        /* a bit lower for staggered look */
+  right: 15%;
+  width: 42%;           /* slightly smaller than left for variety */
+  z-index: 3;           /* sits on top of both */
+}
+
+/* Tighter on small screens */
+@media (max-width: 640px) {
+  .overlay { width: 38%; }
+  .overlay-right { width: 34%; }
+  .overlay-left { bottom: -20px; left: 6%; }
+  .overlay-right { bottom: -32px; right: 5%; }
+}
+
+
+
+
+.arrow-overlay {
+  position: absolute;
+  top: 103%;                /* move further down (was 50%) */
+  left: 55%;               /* keep horizontally centered */
+  transform: translate(-50%, -50%);
+  width: 220px;            /* make arrow larger */
+  height: auto;
+  z-index: 10;             /* keep it on top of flowers/daisies */
+  pointer-events: none;    /* don't block clicks */
+}
+
+
+
+
+
+
+
+/* BIG Daisies over the flower images */
+.flower-daisy {
+  position: absolute;
+  width: 170px;                 /* adjust size */
+  height: auto;
+  z-index: 5;                  /* above everything else */
+  pointer-events: none;        /* don't block clicks */
+}
+
+/* Left daisy placement */
+.flower-daisy.d-left {
+  bottom: 24px;              /* adjust to sit on left overlay */
+  left: 21%;
+  transform: rotate(-15deg);
+}
+/* Right daisy placement */
+.flower-daisy.d-right {
+  bottom: -160px;              /* adjust to sit on right overlay */
+  right: 12%;
+  transform: rotate(20deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* don't know */
 
 @media (min-width: 640px) {
     .statsContainer {
@@ -260,62 +509,4 @@ PROJECT HOME PAGE, MAY REMOVE
     .statsContainer2 {
         flex-direction: row;
     }
-}
-
-
-
-
-
-
-
-*DAISYTEST*
-.flower-ring {
-  position: relative;
-  width: min(90vw, 520px);   /* responsive */
-  aspect-ratio: 1 / 1;       /* perfect square */
-  margin: 40px auto;         /* center on page */
-}
-
-/* Center image */
-.name-logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: min(70%, 280px);     /* scale as you like */
-  height: auto;
-  transform: translate(-50%, -50%);  /* perfectly centered */
-  z-index: 2;                 /* stays above daisies if they overlap */
-}
-
-/* Daisies placed around the center */
-.daisy {
-  --angle: 0deg;              /* direction from center (you set per element) */
-  --radius: 150px;            /* distance from center (you set per element) */
-  --size: 60px;               /* image size (you set per element) */
-  --rotate: 0deg;             /* extra tilt for fun (you set per element) */
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--size);
-  height: var(--size);
-  transform:
-    translate(-50%, -50%)         /* start at exact center */
-    rotate(var(--angle))          /* aim outward */
-    translate(var(--radius))      /* move out from center */
-    rotate(var(--rotate));        /* playful tilt */
-  transform-origin: center center;
-  z-index: 1;
-}
-
-/* Optional: gentle hover for fun */
-.daisy:hover {
-  scale: 1.05;
-  transition: scale 0.15s ease;
-}
-
-/* Optional: keep the layout nice on small screens */
-@media (max-width: 480px) {
-  .name-logo { width: 75%; }
-  .daisy { --radius: 120px; } /* pulls ring in a bit */
 }
