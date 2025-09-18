@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Card — Community Garden</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* colors */
+    :root{
+    --bg-color: #FCE4EC;         
+      --card-color: #ffffff;    
+      --primary-color: #2A002B;  
+      --muted-color: #7A4E6C;   
+      --accent-color: #E91E63;    
+      --accent-hover: #FF4081;     
+      --radius: 16px;
+      --shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Lexend", sans-serif;
+      background: var(--bg-color);
+      color: var(--primary-color);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    /* card */
+    .card{
+      width: min(680px, 92vw);
+      background: var(--card-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Flexbox header */
+    .card-header{
+      display: flex;                
+      justify-content: space-between;
+      align-items: center;        
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .card-header h3{
+      margin: 0;
+      font-size: clamp(18px, 3.5vw, 22px);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    /* Button */
+    .expand-btn{
+      height: 40px;
+      width: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: var(--accent-color);
+      color: #0c2233;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .expand-btn:hover{ box-shadow: 0 6px 18px rgba(149,184,209,0.45); }
+    .expand-btn:active{ transform: translateY(1px) scale(0.98); }
+    .expand-btn:focus-visible{
+      outline: 3px solid rgba(149,184,209,0.6);
+      outline-offset: 3px;
+    }
+
+    .card-content{ padding: 16px 18px 18px; }
+
+    .summary{
+      margin: 0 0 10px 0;
+      color: var(--muted-color);
+      font-size: 15px;
+    }
+
+    /* Collapsible */
+    .details{
+      overflow: hidden;
+      max-height: 0;                 /* hidden by default */
+      transition: max-height 220ms ease;
+    }
+    
+    @media (prefers-reduced-motion: reduce){
+      .details{ transition: none; }
+      .expand-btn{ transition: none; }
+    }
+
+    .card.is-open .details{ max-height: 240px; } /* adjust if your content is taller */
+    .details p{ margin: 0 0 8px 0; }
+
+    .vis-hint{
+      margin-top: 8px;
+      font-size: 12px;
+      color: #2b4a42;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card" role="region" aria-labelledby="card-title">
+    <div class="card-header">
+      <h3 id="card-title">Lady Gaga Project</h3>
+
+
+      <button
+        class="expand-btn"
+        id="expandBtn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="cardDetails"
+        aria-label="Expand card"
+        title="Show more"
+      >+</button>
+    </div>
+
+    <div class="card-content">
+      <p class="summary">
+        Join your neighborhoods "Little Monsters" in creating a shrine for Lady Gaga — a location to celebrate her music and sing karaoke.
+      </p>
+
+      <!-- Collapsible block -->
+      <div id="cardDetails" class="details" hidden>
+        <p>Meeting every Saturday at 10am. Tools provided. All skill levels welcome.</p>
+        <p>Location: The C4C.</p>
+        <p>Contact: <a href="mailto:garden@community.org">LadyGagaBigFan@colorado.edu</a></p>
+      </div>
+
+      <div class="vis-hint" id="visHint" aria-live="polite">Press “+” to read more.</div>
+    </div>
+  </div>
+
+  <script>
+    // PHASE 2: JavaScript Interaction (tiny + clear)
+    const card = document.getElementById('card');
+    const expandBtn = document.getElementById('expandBtn');
+    const details = document.getElementById('cardDetails');
+    const visHint = document.getElementById('visHint');
+
+    function toggleDetails(){
+      const isOpen = expandBtn.getAttribute('aria-expanded') === 'true';
+      const nextOpen = !isOpen;
+
+      // Update ARIA + button text
+      expandBtn.setAttribute('aria-expanded', String(nextOpen));
+      expandBtn.setAttribute('aria-label', nextOpen ? 'Collapse card' : 'Expand card');
+      expandBtn.textContent = nextOpen ? '–' : '+';
+
+      // Show/Hide details
+      if (nextOpen) {
+        details.hidden = false;
+        card.classList.add('is-open');
+        visHint.textContent = 'Details shown. Press “–” to collapse.';
+      } else {
+        card.classList.remove('is-open');
+        // Wait a frame so the max-height animation can run before hiding
+        setTimeout(() => { details.hidden = true; }, 220);
+        visHint.textContent = 'Details hidden. Press “+” to read more.';
+      }
+    }
+
+    expandBtn.addEventListener('click', toggleDetails);
+    // Keyboard works by default because it’s a <button>:
+    // Tab to focus, then Enter or Space to activate.
+  </script>
+</body>
+</html>
