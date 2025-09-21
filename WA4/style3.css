@@ -193,14 +193,17 @@ section{
 
 
 
-    /* stats blocks */
+    /* stats/homepage about me (major/minor/school) blocks */
 
 .statsContainer {
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
     gap: 24px;
+    text-align: center;
 }
+
 
 .statsContainer2 {
   display: flex;
@@ -412,7 +415,7 @@ section{
 
 /* Left position */
 .overlay-left {
-  bottom: -275px;        /* more negative, more down*/
+  bottom: -495px;        /* more negative, more down*/
   left: 20%;
   width: 32%;
   z-index: 2;           /* above background*/
@@ -420,7 +423,7 @@ section{
 
 /* Right overlay: staggered above both */
 .overlay-right {
-  bottom: -325px;        /* a bit lower for staggered look */
+  bottom: -550px;        /* a bit lower for staggered look */
   right: 15%;
   width: 42%;           /* slightly smaller than left for variety */
   z-index: 3;           /* sits on top of both */
@@ -439,7 +442,7 @@ section{
 
 .arrow-overlay {
   position: absolute;
-  top: 103%;                /* move further down (was 50%) */
+  top: 130%;                /* move further down (was 50%) */
   left: 55%;               /* keep horizontally centered */
   transform: translate(-50%, -50%);
   width: 220px;            /* make arrow larger */
@@ -465,13 +468,13 @@ section{
 
 /* Left daisy placement */
 .flower-daisy.d-left {
-  bottom: 24px;              /* adjust to sit on left overlay */
+  bottom: -200px;              /* adjust to sit on left overlay */
   left: 21%;
   transform: rotate(-15deg);
 }
 /* Right daisy placement */
 .flower-daisy.d-right {
-  bottom: -160px;              /* adjust to sit on right overlay */
+  bottom: -440px;              /* adjust to sit on right overlay */
   right: 12%;
   transform: rotate(20deg);
 }

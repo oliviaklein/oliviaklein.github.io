@@ -1,0 +1,120 @@
+body {
+    background-color: beige;
+    color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainNav {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBrand {
+   align-self: center;
+   font-size: 20px
+}
+
+.navMenu {
+    display: flex;
+    gap: 15px;
+}
+
+.mainNav ul{
+    list-style: none;
+}
+
+navMenu a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    margin: 20px;
+    color: cornflowerblue;
+    background-color: blanchedalmond;
+    border: solid 4px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navMenu a:hover {
+    background-color: cornflowerblue;
+    color: blanchedalmond;
+    border: solid 4px white;
+    cursor: pointer;
+}
+
+a.visited {
+    text-decoration: none;
+}
+
+.navToggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navBrand {
+        align-self: center;
+        font-size: 18px;
+}
+
+.navMenu {
+        display: none;
+}
+
+.navMenu.show {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    left: 0px;
+    background-color: blanchedalmond;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    transition-duration: .5s;
+}
+    
+.navMenu a {
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;   
+    transition: background-color 0.3s, color 0.3s, border 0.3s
+}
+
+.navToggle {
+    position: absolute; 
+    z-index: 5;
+    top: 25px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-around;  
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    border: none;
+    background-color: antiquewhite;
+    border-radius: 7px;
+    transition-duration: .5s;
+}
+
+
+span {
+    margin: 3px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: cornsilk;
+    display: block
+}
+
+}
