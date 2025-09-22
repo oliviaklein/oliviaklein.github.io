@@ -2,11 +2,12 @@ body {
   background-color: #C7CEDB;
   color: #1D1A05;
   margin: 0;
- font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1.5;
+  font-family: "PT Sans", Calibri, "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;  line-height: 1.5;
 }
 
-/* anchor absolute dropdown to the nav */
+
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -14,16 +15,16 @@ body {
   padding: clamp(12px, 2vw, 20px);
   background: #E2C044;
   border-bottom: 1px solid #1D1A05;
-  position: relative;           /* NEW: anchor for absolute children */
+  position: relative;           
 }
 
-/* brand */
+
 .nav-brand {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-/* desktop menu: row */
+
 .nav-menu {
   display: flex;
   gap: 12px;
@@ -32,7 +33,9 @@ body {
   padding: 0;
 }
 
-/* link styles + hover */
+
+
+
 .nav-menu a {
   display: inline-block;
   text-decoration: none;
@@ -44,6 +47,9 @@ body {
   border-radius: 6px;
   transition: background-color .2s, color .2s, border-color .2s;
 }
+
+
+
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
   background: #D3CAC5;
@@ -52,24 +58,31 @@ body {
   outline: none;
 }
 
-/* hamburger hidden on desktop */
+
+
+
 .nav-toggle {
   display: none;
   border: 1 solid #1D1A05;
   background: #B9AAA2;
-  width: 44px;                     /* 44px touch target */
-  height: 44px;                    /* 44px touch target */
+  width: 44px;                
+  height: 44px;             
   padding: 8px;
   border-radius: 6px;
   cursor: pointer;
   transition: transform .2s, background-color .2s, box-shadow .2s;
 }
+
+
 .nav-toggle:hover {
-  background: #D3CAC5;                /* hover feedback */
+  background: #D3CAC5;   
 }
+
+
+
 .nav-toggle:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px #fff;      /* clear focus ring */
+  box-shadow: 0 0 0 3px #fff;     
 }
 
 .nav-toggle span {
@@ -82,25 +95,26 @@ body {
 }
 
 
-/* rotate the hamburger when open */
 .nav-toggle.open {
   transform: rotate(270deg);
 }
 
 
-/* MOBILE */
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
 
-  /* start hidden on mobile */
+
+
+
   .nav-menu {
     display: none;
   }
 
-  /* shown state */
+
+
   .nav-menu.show {
     position: absolute;
-    top: calc(100% + 4px);         /* sits just below the nav bar */
+    top: calc(100% + 4px);        
     left: 0;
     right: 0;
     background: #B9AAA2;
@@ -110,7 +124,7 @@ body {
     gap: 8px;
     padding: 12px 0;
     border-top: 1px solid #1D1A05;
-    z-index: 1000;                 /* NEW: on top of page content */
+    z-index: 1000;               
   }
 
   .nav-menu a {
@@ -127,11 +141,4 @@ body {
     background: #D3CAC5;
     color: #1D1A05;
   }
-}
-
-
-.nav-menu a[aria-current="page"] {
-  background: #F9F3DC;
-  border-color: #1D1A05;
-  font-weight: 700;
 }
