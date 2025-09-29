@@ -142,3 +142,88 @@ body {
     color: #1D1A05;
   }
 }
+
+/* hide when filtering (JS adds this) */
+.is-hidden { display: none !important; }
+
+/* tiny helpers */
+.filter-input { width: 100%; padding: 10px; background:#F9F3DC; color:#1D1A05;
+  border:1px solid #1D1A05; border-radius:6px; }
+.status { font-size: .95rem; margin-top: 6px; }
+
+/* --- HOME: named grid areas --- */
+.home-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "hero"
+    "start"
+    "next"
+    "questions";
+}
+.home-hero { grid-area: hero; }
+.home-start { grid-area: start; }
+.home-next { grid-area: next; }
+.home-questions { grid-area: questions; }
+
+@media (min-width: 820px) {
+  .home-grid {
+    grid-template-columns: 1.2fr .8fr;
+    grid-template-areas:
+      "hero hero"
+      "start next"
+      "questions questions";
+  }
+}
+
+/* --- EVENTS: named grid areas --- */
+.events-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "upcoming"
+    "controls"
+    "past";
+}
+.events-title { grid-area: title; }
+.events-upcoming { grid-area: upcoming; }
+.events-controls { grid-area: controls; }
+.events-past { grid-area: past; }
+
+@media (min-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1.4fr .6fr;
+    grid-template-areas:
+      "title title"
+      "upcoming controls"
+      "past controls";
+  }
+}
+
+/* --- RESOURCES: light grid (keeps your sections) --- */
+.resources-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "filters"
+    "list";
+}
+.resources-title { grid-area: title; }
+.resources-filters { grid-area: filters; }
+.resources-list { grid-area: list; }
+
+@media (min-width: 900px) {
+  .resources-grid {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "title title"
+      "list filters";
+  }
+}
+
+

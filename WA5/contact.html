@@ -71,35 +71,33 @@
 
 
 
-    <form action="#" method="post" class="panel">
-      <h2>Send a message</h2>
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required>
+   <form action="#" method="post" class="panel" id="contactForm" novalidate>
+  <h2>Send a message</h2>
 
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text" required>
+  <span id="nameErr" class="status" role="alert" aria-live="polite"></span>
 
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" required>
+  <span id="emailErr" class="status" role="alert" aria-live="polite"></span>
 
+  <label for="topic">Topic</label>
+  <select id="topic" name="topic">
+    <option>Membership</option>
+    <option>Events</option>
+    <option>Resources</option>
+    <option>General Question</option>
+  </select>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required>
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="2"></textarea>
+  <span id="msgErr" class="status" role="alert" aria-live="polite"></span>
 
+  <button type="submit">Send</button>
+  <p id="formStatus" class="status" aria-live="polite"></p>
+</form>
 
-
-
-      <label for="topic">Topic</label>
-      <select id="topic" name="topic">
-        <option>Membership</option>
-        <option>Events</option>
-        <option>Resources</option>
-        <option>General Question</option>
-      </select>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="2"></textarea>
-
-      <button type="submit">Send</button>
-    </form>
-
-  </main>
 
 
   
