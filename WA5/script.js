@@ -168,3 +168,26 @@ document.addEventListener('click', (e) => {
     form.reset();
   });
 })();
+
+
+// Save language choice
+function setLanguage(lang) {
+    localStorage.setItem('userLanguage', lang);
+    applyLanguage(lang);
+}
+
+// Apply language to page content
+function applyLanguage(lang) {
+    const greeting = document.getElementById('greeting');
+    if (lang === 'es') {
+        greeting.textContent = "Hola, bienvenido a mi sitio!";
+    } else {
+        greeting.textContent = "Hello, welcome to my site!";
+    }
+}
+
+// Load on page visit
+window.addEventListener('load', function() {
+    const userLang = localStorage.getItem('userLanguage') || 'en';
+    applyLanguage(userLang);
+});
