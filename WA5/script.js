@@ -170,24 +170,49 @@ document.addEventListener('click', (e) => {
 })();
 
 
+/* ===== FEATURE D: LANGUAGE SWITCHER ===== */
+
+// Translation data
+const translations = {
+  en: {
+    title: "Boulder County Beekeepers Association",
+    mission: "Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education, public service and conscientious beekeeping.”",
+    startHere: "Start here",
+    startText: "New or returning to beekeeping? Visit Resources for basics, checklists, and hive health info.",
+    whatsNext: "What’s next",
+    nextText: "See upcoming meetings and classes on Events. If nothing’s posted yet, check back soon.",
+    questions: "Questions",
+    questionsText: "Need help or have a general question? Head to Contact."
+  },
+  es: {
+    title: "Asociación de Apicultores del Condado de Boulder",
+    mission: "Nuestra misión: “Fomentar la apicultura responsable en el Condado de Boulder, Colorado, a través de la educación, el servicio público y la apicultura consciente.”",
+    startHere: "Empieza aquí",
+    startText: "¿Nuevo o regresando a la apicultura? Visita Recursos para lo básico, listas de verificación e información de salud de la colmena.",
+    whatsNext: "Qué sigue",
+    nextText: "Consulta las próximas reuniones y clases en Eventos. Si aún no hay nada publicado, vuelve pronto.",
+    questions: "Preguntas",
+    questionsText: "¿Necesitas ayuda o tienes una pregunta general? Ve a Contacto."
+  }
+};
+
+// Apply translations to the page
+function applyLanguage(lang) {
+  const elements = document.querySelectorAll("[data-key]");
+  elements.forEach(el => {
+    const key = el.getAttribute("data-key");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
 // Save language choice
 function setLanguage(lang) {
-    localStorage.setItem('userLanguage', lang);
-    applyLanguage(lang);
+  localStorage.setItem('userLanguage', lang);
+  applyLanguage(lang);
 }
 
-// Apply language to page content
-function applyLanguage(lang) {
-    const greeting = document.getElementById('greeting');
-    if (lang === 'es') {
-        greeting.textContent = "Hola, bienvenido a mi sitio!";
-    } else {
-        greeting.textContent = "Hello, welcome to my site!";
-    }
-}
-
-// Load on page visit
-window.addEventListener('load', function() {
-    const userLang = localStorage.getItem('userLanguage') || 'en';
-    applyLanguage(userLang);
-});
+// Load on page visit (AFTER translations exist)
+const userLang = localStorage.getItem('userLanguage') || 'en';
+applyLanguage(userLang);
