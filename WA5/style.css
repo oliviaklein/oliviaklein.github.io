@@ -1,13 +1,13 @@
+/* === BASE STYLES === */
 body {
   background-color: #C7CEDB;
   color: #1D1A05;
   margin: 0;
   font-family: "PT Sans", Calibri, "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
-  line-height: 1.5;  line-height: 1.5;
+  line-height: 1.5;
 }
 
-
-
+/* === NAVIGATION BAR === */
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -15,15 +15,13 @@ body {
   padding: clamp(12px, 2vw, 20px);
   background: #E2C044;
   border-bottom: 1px solid #1D1A05;
-  position: relative;           
+  position: relative;
 }
-
 
 .nav-brand {
   font-size: 1.25rem;
   font-weight: 600;
 }
-
 
 .nav-menu {
   display: flex;
@@ -32,9 +30,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
-
 
 .nav-menu a {
   display: inline-block;
@@ -48,8 +43,6 @@ body {
   transition: background-color .2s, color .2s, border-color .2s;
 }
 
-
-
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
   background: #D3CAC5;
@@ -58,31 +51,26 @@ body {
   outline: none;
 }
 
-
-
-
+/* === MOBILE MENU TOGGLE === */
 .nav-toggle {
   display: none;
-  border: 1 solid #1D1A05;
+  border: 1px solid #1D1A05;
   background: #B9AAA2;
-  width: 44px;                
-  height: 44px;             
+  width: 44px;
+  height: 44px;
   padding: 8px;
   border-radius: 6px;
   cursor: pointer;
   transition: transform .2s, background-color .2s, box-shadow .2s;
 }
 
-
 .nav-toggle:hover {
-  background: #D3CAC5;   
+  background: #D3CAC5;
 }
-
-
 
 .nav-toggle:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px #fff;     
+  box-shadow: 0 0 0 3px #fff;
 }
 
 .nav-toggle span {
@@ -94,27 +82,21 @@ body {
   width: 100%;
 }
 
-
 .nav-toggle.open {
   transform: rotate(270deg);
 }
 
-
+/* === MOBILE NAV MENU === */
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
-
-
-
 
   .nav-menu {
     display: none;
   }
 
-
-
   .nav-menu.show {
     position: absolute;
-    top: calc(100% + 4px);        
+    top: calc(100% + 4px);
     left: 0;
     right: 0;
     background: #B9AAA2;
@@ -124,7 +106,7 @@ body {
     gap: 8px;
     padding: 12px 0;
     border-top: 1px solid #1D1A05;
-    z-index: 1000;               
+    z-index: 1000;
   }
 
   .nav-menu a {
@@ -143,15 +125,24 @@ body {
   }
 }
 
-/* hide when filtering (JS adds this) */
+/* === COMMON UTILITIES === */
 .is-hidden { display: none !important; }
 
-/* tiny helpers */
-.filter-input { width: 100%; padding: 10px; background:#F9F3DC; color:#1D1A05;
-  border:1px solid #1D1A05; border-radius:6px; }
-.status { font-size: .95rem; margin-top: 6px; }
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  background: #F9F3DC;
+  color: #1D1A05;
+  border: 1px solid #1D1A05;
+  border-radius: 6px;
+}
 
-/* --- HOME: named grid areas --- */
+.status {
+  font-size: .95rem;
+  margin-top: 6px;
+}
+
+/* === HOME PAGE GRID === */
 .home-grid {
   display: grid;
   gap: 16px;
@@ -177,7 +168,7 @@ body {
   }
 }
 
-/* --- EVENTS: named grid areas --- */
+/* === EVENTS PAGE GRID === */
 .events-grid {
   display: grid;
   gap: 16px;
@@ -203,7 +194,7 @@ body {
   }
 }
 
-/* --- RESOURCES: light grid (keeps your sections) --- */
+/* === RESOURCES PAGE GRID === */
 .resources-grid {
   display: grid;
   gap: 16px;
@@ -226,82 +217,15 @@ body {
   }
 }
 
-
-/* === CONTAINER QUERY (non-intrusive enhancement) === */
+/* === CONTAINER QUERY === */
 main {
   container-type: inline-size;
 }
 
-/* Adjust small component styling only when the container is wider */
 @container (min-width: 700px) {
-  .panel h2 {
-    font-size: 1.3rem;
-  }
-  .panel p {
-    font-size: 1.05rem;
-  }
+  .panel h2 { font-size: 1.3rem; }
+  .panel p { font-size: 1.05rem; }
 }
-
-/* === PRIVACY STATEMENT STYLING === */
-footer.privacy {
-  background: #E2C044;
-  border-top: 1px solid #1D1A05;
-  text-align: center;
-  padding: 16px;
-  margin-top: 40px;
-  color: #1D1A05;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-footer.privacy h3 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-#dataStatus {
-  color: #1D1A05;
-  font-style: italic;
-  font-size: 0.9rem;
-  margin-top: 6px;
-  transition: opacity 0.5s ease;
-}
-
-/* === LANGUAGE SWITCHER STYLING === */
-.language-switcher {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background: #E2C044;
-  padding: 10px;
-  border-bottom: 1px solid #1D1A05;
-}
-
-.language-switcher button {
-  background: #B9AAA2;
-  border: 1.2px solid #1D1A05;
-  border-radius: 6px;
-  color: #1D1A05;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color .2s;
-}
-
-.language-switcher button:hover {
-  background: #D3CAC5;
-}
-
-#dataStatus {
-  color: #1D1A05;
-  font-style: italic;
-  font-size: 0.9rem;
-  margin-left: 10px;
-  transition: opacity 0.5s ease;
-}
-
-
 
 /* === LANGUAGE SWITCHER CLEAN STYLE === */
 .language-switcher {
@@ -311,7 +235,7 @@ footer.privacy h3 {
   gap: 12px;
   background: #F1E1A7;
   padding: 10px;
-  border-bottom: none; /* no black line */
+  border-bottom: none;
 }
 
 .language-switcher button {
@@ -330,22 +254,22 @@ footer.privacy h3 {
   transform: scale(1.03);
 }
 
-/* === POPUP MESSAGE STYLE === */
+/* === POPUP MESSAGE UNDER BUTTONS (LEFT SIDE) === */
 .popup-message {
-  position: fixed;
-  top: 15px;
-  right: 15px;
+  position: absolute;
+  left: 20px;
+  top: 95px;
   background: #E2C044;
   color: #1D1A05;
   border: 1px solid #1D1A05;
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 6px;
+  padding: 8px 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   opacity: 0;
   pointer-events: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: opacity 0.4s ease;
-  z-index: 2000;
+  z-index: 1000;
 }
 
 .popup-message.show {
@@ -368,28 +292,4 @@ footer.privacy {
 footer.privacy h3 {
   font-size: 1.1rem;
   margin-bottom: 6px;
-}
-
-
-/* === POPUP MESSAGE UNDER BUTTONS (LEFT SIDE) === */
-.popup-message {
-  position: absolute;
-  left: 20px;
-  top: 95px; /* just below the language switcher */
-  background: #E2C044;
-  color: #1D1A05;
-  border: 1px solid #1D1A05;
-  border-radius: 6px;
-  padding: 8px 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  font-size: 0.9rem;
-  transition: opacity 0.4s ease;
-  z-index: 1000;
-}
-
-.popup-message.show {
-  opacity: 1;
-  pointer-events: auto;
 }
