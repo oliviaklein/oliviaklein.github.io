@@ -40,6 +40,20 @@
 </head>
 <body>
   <nav class="main-nav">
+
+<!-- Language Switcher (clean and consistent) -->
+<div class="language-switcher">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('es')">Español</button>
+  <button id="clearDataBtn">Clear My Data</button>
+</div>
+
+<!-- Popup for data clear message -->
+<div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
+
+<div class="nav-spacer"></div>
+
+
     <div class="nav-brand">Boulder County Bee Keepers</div>
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
@@ -54,53 +68,50 @@
 
 
 
+<main>
+
+  <h1 data-key="contactTitle">Contact</h1>
+  <p data-key="contactIntro">Questions, membership, or general info — send us a note below.</p>
+
+  <form action="#" method="post" class="panel" id="contactForm" novalidate>
+    <h2 data-key="contactHeader">Send a message</h2>
+
+    <label for="name" data-key="labelName">Name</label>
+    <input id="name" name="name" type="text" required>
+    <span id="nameErr" class="status" role="alert" aria-live="polite"></span>
+
+    <label for="email" data-key="labelEmail">Email</label>
+    <input id="email" name="email" type="email" required>
+    <span id="emailErr" class="status" role="alert" aria-live="polite"></span>
+
+    <label for="topic" data-key="labelTopic">Topic</label>
+    <select id="topic" name="topic">
+      <option data-key="topicMembership">Membership</option>
+      <option data-key="topicEvents">Events</option>
+      <option data-key="topicResources">Resources</option>
+      <option data-key="topicGeneral">General Question</option>
+    </select>
+
+    <label for="message" data-key="labelMessage">Message</label>
+    <textarea id="message" name="message" rows="2"></textarea>
+    <span id="msgErr" class="status" role="alert" aria-live="polite"></span>
+
+    <button type="submit" data-key="btnSend">Send</button>
+    <p id="formStatus" class="status" aria-live="polite"></p>
+  </form>
+</main>
+
+<footer class="privacy">
+  <h3 data-key="privacyTitle">Privacy Statement</h3>
+  <p data-key="privacyText">
+    This site stores your language preference locally to improve your experience. 
+    No personal or external data is collected. You can clear your saved preferences anytime. 
+    Stored preferences automatically expire after 7 days.
+  </p>
+</footer>
+
+<script src="script.js"></script>
 
 
-
-  <div class="nav-spacer"></div>
-
-
-
-
-
-
-  <main>
-    <h1>Contact</h1>
-    <p>Questions, membership, or general info — send us a note below.</p>
-
-
-
-
-   <form action="#" method="post" class="panel" id="contactForm" novalidate>
-  <h2>Send a message</h2>
-
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text" required>
-  <span id="nameErr" class="status" role="alert" aria-live="polite"></span>
-
-  <label for="email">Email</label>
-  <input id="email" name="email" type="email" required>
-  <span id="emailErr" class="status" role="alert" aria-live="polite"></span>
-
-  <label for="topic">Topic</label>
-  <select id="topic" name="topic">
-    <option>Membership</option>
-    <option>Events</option>
-    <option>Resources</option>
-    <option>General Question</option>
-  </select>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="2"></textarea>
-  <span id="msgErr" class="status" role="alert" aria-live="polite"></span>
-
-  <button type="submit">Send</button>
-  <p id="formStatus" class="status" aria-live="polite"></p>
-</form>
-
-
-
-  
-  <script src="script.js"></script>
 </body>
 </html>

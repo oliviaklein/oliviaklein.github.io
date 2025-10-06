@@ -31,6 +31,20 @@
 
 <body>
   <nav class="main-nav">
+
+<!-- Language Switcher (clean and consistent) -->
+<div class="language-switcher">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('es')">Español</button>
+  <button id="clearDataBtn">Clear My Data</button>
+</div>
+
+<!-- Popup for data clear message -->
+<div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
+
+<div class="nav-spacer"></div>
+
+
     <div class="nav-brand">Boulder County Bee Keepers</div>
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
@@ -49,48 +63,54 @@
 
 
 
- <main class="events-grid">
+<main class="events-grid">
+
+
   <header class="events-title">
-    <h1>Events</h1>
+    <h1 data-key="eventsTitle">Events</h1>
     <p id="eventsStatus" class="status" aria-live="polite"></p>
   </header>
 
-    <section class="panel events-upcoming">
-  <h2>Upcoming</h2>
-  <ul class="event-list" id="eventList">
-    <li><strong>Monthly Meeting</strong> — Date TBD — Topic: Seasonal hive care</li>
-    <li><strong>Beginner Basics (Class)</strong> — Registration opens soon</li>
-    <li><strong>Field Day</strong> — Date TBA — Hands-on inspection practice</li>
-  </ul>
-  <p style="margin-top:10px;">If you don’t see new items yet, please check back soon.</p>
-</section>
+  <section class="panel events-upcoming">
+    <h2 data-key="upcomingHeader">Upcoming</h2>
+    <ul class="event-list" id="eventList">
+      <li><strong data-key="event1">Monthly Meeting</strong> — Date TBD — Topic: Seasonal hive care</li>
+      <li><strong data-key="event2">Beginner Basics (Class)</strong> — Registration opens soon</li>
+      <li><strong data-key="event3">Field Day</strong> — Date TBA — Hands-on inspection practice</li>
+    </ul>
+    <p style="margin-top:10px;" data-key="checkBack">If you don’t see new items yet, please check back soon.</p>
+  </section>
+
+  <section class="panel events-controls">
+    <h2 data-key="howToRSVP">How to RSVP</h2>
+
+    <label for="eventSearch" data-key="searchEvents">Search events</label>
+    <input id="eventSearch" class="filter-input" type="search" placeholder="Try: class, field day" />
+    <button id="clearEventFilters" type="button" style="margin-top:8px" data-key="btnClear">Clear search</button>
+
+    <p data-key="rsvpNote">RSVP details will be posted with each event here. For questions, use the Contact page.</p>
+  </section>
+
+  <section class="panel events-past">
+    <h2 data-key="pastHeader">Past Highlights</h2>
+    <ul class="event-list">
+      <li data-key="past1">Workshop: Varroa monitoring & treatment basics</li>
+      <li data-key="past2">Talk: Pollinator-friendly gardening in Boulder County</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="privacy">
+  <h3 data-key="privacyTitle">Privacy Statement</h3>
+  <p data-key="privacyText">
+    This site stores your language preference locally to improve your experience. 
+    No personal or external data is collected. You can clear your saved preferences anytime. 
+    Stored preferences automatically expire after 7 days.
+  </p>
+</footer>
+
+<script src="script.js"></script>
 
 
-<section class="panel events-controls">
-  <h2>How to RSVP</h2>
-
-  <!-- added: simple search for events -->
-  <label for="eventSearch">Search events</label>
-  <input id="eventSearch" class="filter-input" type="search" placeholder="Try: class, field day" />
-  <button id="clearEventFilters" type="button" style="margin-top:8px">Clear search</button>
-
-  <p>RSVP details will be posted with each event here on the Events page. For questions, use the <a href="BeeContact.html">Contact</a> page.</p>
-</section>
-
-
-<section class="panel events-past">
-  <h2>Past Highlights</h2>
-  <ul class="event-list">
-    <li>Workshop: Varroa monitoring & treatment basics</li>
-    <li>Talk: Pollinator-friendly gardening in Boulder County</li>
-  </ul>
-</section>
-
-  </main>
-
-
-
-  
-  <script src="script.js"></script>
 </body>
 </html>

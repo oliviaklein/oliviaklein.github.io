@@ -30,6 +30,20 @@
 </head>
 <body>
   <nav class="main-nav">
+
+<!-- Language Switcher (clean and consistent) -->
+<div class="language-switcher">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('es')">Español</button>
+  <button id="clearDataBtn">Clear My Data</button>
+</div>
+
+<!-- Popup for data clear message -->
+<div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
+
+<div class="nav-spacer"></div>
+
+
     <div class="nav-brand">Boulder County Bee Keepers</div>
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
@@ -43,14 +57,7 @@
   </nav>
 
 
-    <!-- Language Switcher -->
-  <div class="language-switcher">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('es')">Español</button>
-    <p id="greeting"></p>
-  </div>
-
-  <div class="nav-spacer"></div>
+<p id="dataStatus"></p>
 
   <main class="home-grid">
     <section class="home-hero">
@@ -89,5 +96,16 @@
 
 
   <script src="script.js"></script>
+
+<footer class="privacy">
+  <h3 data-key="privacyTitle">Privacy Statement</h3>
+  <p data-key="privacyText">
+    This site stores your language preference locally to improve your experience. 
+    No personal or external data is collected. You can clear your saved preferences anytime. 
+    Stored preferences automatically expire after 7 days.
+  </p>
+</footer>
+
+
 </body>
 </html>

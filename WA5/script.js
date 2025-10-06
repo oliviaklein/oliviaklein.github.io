@@ -182,7 +182,39 @@ const translations = {
     whatsNext: "What’s next",
     nextText: "See upcoming meetings and classes on Events. If nothing’s posted yet, check back soon.",
     questions: "Questions",
-    questionsText: "Need help or have a general question? Head to Contact."
+    questionsText: "Need help or have a general question? Head to Contact.",
+ // CONTACT
+    contactTitle: "Contact",
+    contactIntro: "Questions, membership, or general info — send us a note below.",
+    contactHeader: "Send a message",
+    labelName: "Name",
+    labelEmail: "Email",
+    labelTopic: "Topic",
+    topicMembership: "Membership",
+    topicEvents: "Events",
+    topicResources: "Resources",
+    topicGeneral: "General Question",
+    labelMessage: "Message",
+    btnSend: "Send",
+    // EVENTS
+    eventsTitle: "Events",
+    upcomingHeader: "Upcoming",
+    checkBack: "If you don’t see new items yet, please check back soon.",
+    howToRSVP: "How to RSVP",
+    searchEvents: "Search events",
+    btnClear: "Clear search",
+    rsvpNote: "RSVP details will be posted here. For questions, use the Contact page.",
+    pastHeader: "Past Highlights",
+    // RESOURCES
+    resourcesTitle: "Resources",
+    findResource: "Find a resource",
+    searchLabel: "Search keywords",
+    basicsTitle: "Beekeeping Basics",
+    healthTitle: "Hive Health",
+    gardenTitle: "Pollinator-Friendly Gardening",
+    localTitle: "Local Info",
+    privacyTitle: "Privacy Statement",
+    privacyText: "This site stores your language preference locally to improve your experience. No personal or external data is collected. You can clear your saved preferences anytime. Stored preferences automatically expire after 7 days."
   },
   es: {
     title: "Asociación de Apicultores del Condado de Boulder",
@@ -192,7 +224,38 @@ const translations = {
     whatsNext: "Qué sigue",
     nextText: "Consulta las próximas reuniones y clases en Eventos. Si aún no hay nada publicado, vuelve pronto.",
     questions: "Preguntas",
-    questionsText: "¿Necesitas ayuda o tienes una pregunta general? Ve a Contacto."
+    questionsText: "¿Necesitas ayuda o tienes una pregunta general? Ve a Contacto.",
+    contactTitle: "Contacto",
+    contactIntro: "Preguntas, membresía o información general — envíanos un mensaje abajo.",
+    contactHeader: "Enviar un mensaje",
+    labelName: "Nombre",
+    labelEmail: "Correo electrónico",
+    labelTopic: "Tema",
+    topicMembership: "Membresía",
+    topicEvents: "Eventos",
+    topicResources: "Recursos",
+    topicGeneral: "Pregunta general",
+    labelMessage: "Mensaje",
+    btnSend: "Enviar",
+    // EVENTS
+    eventsTitle: "Eventos",
+    upcomingHeader: "Próximos",
+    checkBack: "Si aún no ves nuevos elementos, vuelve pronto.",
+    howToRSVP: "Cómo confirmar asistencia",
+    searchEvents: "Buscar eventos",
+    btnClear: "Borrar búsqueda",
+    rsvpNote: "Los detalles para confirmar asistencia se publicarán aquí. Para preguntas, usa la página de Contacto.",
+    pastHeader: "Eventos anteriores",
+    // RESOURCES
+    resourcesTitle: "Recursos",
+    findResource: "Encuentra un recurso",
+    searchLabel: "Palabras clave",
+    basicsTitle: "Conceptos básicos de apicultura",
+    healthTitle: "Salud de la colmena",
+    gardenTitle: "Jardinería amigable con polinizadores",
+    localTitle: "Información local",
+    privacyTitle: "Declaración de privacidad",
+    privacyText: "Este sitio guarda tu preferencia de idioma localmente para mejorar tu experiencia. No se recopilan datos personales ni externos. Puedes borrar tus preferencias guardadas en cualquier momento. Las preferencias se eliminan automáticamente después de 7 días."
   }
 };
 
@@ -216,3 +279,33 @@ function setLanguage(lang) {
 // Load on page visit (AFTER translations exist)
 const userLang = localStorage.getItem('userLanguage') || 'en';
 applyLanguage(userLang);
+
+
+/* ===== FEATURE E: CLEAR USER DATA (Popup Version) ===== */
+const clearBtn = document.getElementById('clearDataBtn');
+const popup = document.getElementById('popupMessage');
+
+if (clearBtn && popup) {
+  clearBtn.addEventListener('click', () => {
+    localStorage.clear();
+    applyLanguage('en'); // reset to English
+    popup.classList.add('show');
+
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+  });
+}
+
+/* ===== FEATURE F: LANGUAGE DATA EXPIRATION ===== */
+const now = Date.now();
+const expiryDays = 7;
+const savedTime = localStorage.getItem('savedTime');
+
+if (!savedTime || now - savedTime > expiryDays * 24 * 60 * 60 * 1000) {
+  localStorage.clear();
+  localStorage.setItem('savedTime', now);
+} else {
+  localStorage.setItem('savedTime', now);
+}
