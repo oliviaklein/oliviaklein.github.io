@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boulder County Bee Keepers — Home</title>
+  <title>Boulder County Beekeepers — Home</title>
 
-
+  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
-
-
-
+  <!-- css file -->
   <link rel="stylesheet" href="/WA5/style.css">
 
-
   <style>
+    /* just a few layout tweaks */
     main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
     .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
     .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
@@ -24,30 +22,40 @@
     a.inline { color: inherit; text-decoration: underline; }
     .nav-spacer { height: 8px; } 
   </style>
-
-
-
 </head>
+
 <body>
+  <!-- nav bar -->
   <nav class="main-nav">
-
-<!-- Language Switcher (clean and consistent) -->
-<div class="language-switcher">
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('es')">Español</button>
-  <button id="clearDataBtn">Clear My Data</button>
-</div>
-
-<!-- Popup for data clear message -->
-<div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
-
-<div class="nav-spacer"></div>
+    <!-- language buttons -->
+    <div class="language-switcher">
+      <button onclick="setLanguage('en')">English</button>
+      <button onclick="setLanguage('es')">Español</button>
+      <button id="clearDataBtn">Clear My Data</button>
+    </div>
 
 
-    <div class="nav-brand">Boulder County Bee Keepers</div>
+
+    
+    <!-- popup message -->
+    <div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
+
+    <div class="nav-spacer"></div>
+
+    <div class="nav-brand">Boulder County Beekeepers</div>
+
+
+
+
+    <!-- toggle menu -->
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
     </button>
+
+
+
+
+    <!-- nav links -->
     <ul class="nav-menu" id="navMenu">
       <li><a href="/WA5/home.html">Home</a></li>
       <li><a href="/WA5/resources.html">Resources</a></li>
@@ -56,56 +64,69 @@
     </ul>
   </nav>
 
-
-<p id="dataStatus"></p>
-
   <main class="home-grid">
+
+
+
+    
+    <!-- hero section -->
     <section class="home-hero">
-  <h1 data-key="title">Boulder County Beekeepers Association</h1>
-  <p class="lead" data-key="mission">
-    Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education,
-    public service and conscientious beekeeping.”
-  </p>
-</section>
-
-<section class="panel home-start">
-  <h2 data-key="startHere">Start here</h2>
-  <p data-key="startText">
-    New or returning to beekeeping? Visit <a class="inline" href="BeeResources.html">Resources</a> 
-    for basics, checklists, and hive health info.
-  </p>
-</section>
-
-<section class="panel home-next">
-  <h2 data-key="whatsNext">What’s next</h2>
-  <p data-key="nextText">
-    See upcoming meetings and classes on <a class="inline" href="BeeEvents.html">Events</a>. 
-    If nothing’s posted yet, check back soon.
-  </p>
-</section>
-
-<section class="panel home-questions">
-  <h2 data-key="questions">Questions</h2>
-  <p data-key="questionsText">
-    Need help or have a general question? Head to <a class="inline" href="BeeContact.html">Contact</a>.
-  </p>
-</section>
-</main>
-
-  <div class="nav-spacer"></div>
+      <h1 data-key="title">Boulder County Beekeepers Association</h1>
+      <p class="lead" data-key="mission">
+        Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education,
+        public service and conscientious beekeeping.”
+      </p>
+    </section>
 
 
+
+
+    <!-- info panels -->
+    <section class="panel home-start">
+      <h2 data-key="startHere">Start Here</h2>
+      <p data-key="startText">
+        New or returning to beekeeping? Visit 
+        <a class="inline" href="BeeResources.html">Resources</a> 
+        for basics, checklists, and hive health info.
+      </p>
+    </section>
+
+
+    <section class="panel home-next">
+      <h2 data-key="whatsNext">What’s Next</h2>
+      <p data-key="nextText">
+        See upcoming meetings and classes on 
+        <a class="inline" href="BeeEvents.html">Events</a>. 
+        If nothing’s posted yet, check back soon.
+      </p>
+    </section>
+
+
+    <section class="panel home-questions">
+      <h2 data-key="questions">Questions</h2>
+      <p data-key="questionsText">
+        Need help or have a general question? Head to 
+        <a class="inline" href="BeeContact.html">Contact</a>.
+      </p>
+    </section>
+  </main>
+
+
+
+  <!-- script -->
   <script src="script.js"></script>
 
-<footer class="privacy">
-  <h3 data-key="privacyTitle">Privacy Statement</h3>
-  <p data-key="privacyText">
-    This site stores your language preference locally to improve your experience. 
-    No personal or external data is collected. You can clear your saved preferences anytime. 
-    Stored preferences automatically expire after 7 days.
-  </p>
-</footer>
 
 
+
+  <!-- footer -->
+  <footer class="privacy">
+    <h3 data-key="privacyTitle">Privacy Statement</h3>
+    <p data-key="privacyText">
+      This site stores your language preference locally to improve your experience. 
+      No personal or external data is collected. You can clear your saved preferences anytime. 
+      Stored preferences automatically expire after 7 days.
+    </p>
+  </footer>
 </body>
 </html>
