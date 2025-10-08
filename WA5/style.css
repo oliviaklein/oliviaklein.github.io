@@ -267,15 +267,7 @@ button:hover {
 
 .is-hidden { display: none !important; }
 
-/* container query */
-main {
-  container-type: inline-size;
-}
 
-@container (min-width: 700px) {
-  .panel h2 { font-size: 1.3rem; }
-  .panel p { font-size: 1.05rem; }
-}
 
 /* footer */
 footer.privacy {

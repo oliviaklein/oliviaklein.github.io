@@ -1,158 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photo Gallery</title>
-  <style>
-
-
-
-
-.gallery-container {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: auto auto 1fr;
-      grid-template-areas:
-        "header header"
-        "nav    sidebar"
-        "main   sidebar";
-      gap: 1rem;
-      padding: 1rem;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-    }
-
-    .gallery-header  { grid-area: header; font-size: 1.5rem; font-weight: bold; }
-    .gallery-nav     { grid-area: nav; display: flex; gap: 0.5rem; }
-    .gallery-grid    { grid-area: main; }
-    .gallery-sidebar { grid-area: sidebar; background: #BDD0DB; padding: 1rem; }
-
-
-
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .photo-card {
-      background: #D0D8AB;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      height: 200px;
-      font-weight: 600;
-    }
-
-    .photo-card.featured {
-      grid-column: span 2;
-      height: 300px;
-    }
-
-
-    
-
-
-    .gallery-nav button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      background: #B8C480;
-
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .gallery-nav button:hover {
-      background: #B8C480;
-    }
-    .gallery-nav button.active {
-      background: #333;
-      color: #fff;
-    }
-
-
-
-    @media (max-width: 800px) {
-      .gallery-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas:
-          "header"
-          "nav"
-          "main"
-          "sidebar";
-      }
-      .photo-card.featured {
-        grid-column: auto; 
-      }
-    }
-
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="gallery-container">
+    <div class="gallery-container">
     <header class="gallery-header">Photo Gallery</header>
     <nav class="gallery-nav">
-      <button class="active">All</button>
-      <button>One</button>
-      <button>Two</button>
+        <button>All</button>
+        <button>Nature</button>
+        <button>Architecture</button>
+
     </nav>
-
-
-
-
     <main class="gallery-grid">
-      <div class="photo-card" data-category="one">Photo 1</div>
-      <div class="photo-card" data-category="two">Photo 2</div>
-      <div class="photo-card" data-category="one">Photo 3</div>
-      <div class="photo-card featured" data-category="two">Featured Photo</div>
-      <div class="photo-card" data-category="one">Photo 5</div>
-      <div class="photo-card" data-category="two">Photo 6</div>
+            <div class="photo-card" data-category="nature">Photo 1</div>
+            <div class="photo-card" data-category="architecture">Photo 2</div>
+            <div class="photo-card" data-category="nature">Photo 3</div>
+            <div class="photo-card featured" data-category="featured">Featured Photo</div>
+            <div class="photo-card" data-category="architecture">Photo 5</div>
+            <div class="photo-card" data-category="nature">Photo 6</div>
     </main>
-
-
-    <aside class="gallery-sidebar">Filter Options</aside>
-  </div>
-
-
-
-
-  <script>
-    const filterButtons = document.querySelectorAll('.gallery-nav button');
-    const photoCards = document.querySelectorAll('.photo-card');
-
-
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', (event) => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-
-
-        const filterValue = event.target.textContent.toLowerCase();
-        filterPhotos(filterValue);
-      });
-    });
-
-
-
-
-    function filterPhotos(category) {
-      photoCards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-
-  </script>
+        <aside class="gallery-sidebar">Filter Options</aside>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+

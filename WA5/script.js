@@ -45,6 +45,69 @@ function showPopup() {
 
 
 
+// a lot of translations from english to spanish for website translation
+const translations = {
+  en: {
+    title: "Boulder County Beekeepers Association",
+    mission: "Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education, public service and conscientious beekeeping.”",
+    startHere: "Start Here",
+    startText: "New or returning to beekeeping? Visit Resources for basics, checklists, and hive health info.",
+    whatsNext: "What’s Next",
+    nextText: "See upcoming meetings and classes on Events. If nothing’s posted yet, check back soon.",
+    questions: "Questions",
+    questionsText: "Need help or have a general question? Head to Contact.",
+    contactTitle: "Contact",
+    contactIntro: "Questions, membership, or general info — send us a note below.",
+    contactHeader: "Send a Message",
+    labelName: "Name",
+    labelEmail: "Email",
+    labelTopic: "Topic",
+    labelMessage: "Message",
+    btnSend: "Send",
+    eventsTitle: "Events",
+    upcomingHeader: "Upcoming",
+    howToRSVP: "How to RSVP",
+    searchEvents: "Search Events",
+    btnClear: "Clear Search",
+    pastHeader: "Past Highlights",
+    resourcesTitle: "Resources",
+    findResource: "Find a Resource",
+    searchLabel: "Search Keywords",
+    privacyTitle: "Privacy Statement",
+    privacyText: "This site stores your language preference locally to improve your experience. No personal or external data is collected. You can clear your saved preferences anytime. Stored preferences automatically expire after 7 days."
+  },
+  es: {
+    title: "Asociación de Apicultores del Condado de Boulder",
+    mission: "Nuestra misión: “Fomentar la apicultura responsable en el Condado de Boulder, Colorado, mediante la educación, el servicio público y la apicultura consciente.”",
+    startHere: "Empieza Aquí",
+    startText: "¿Nuevo o regresando a la apicultura? Visita Recursos para lo básico, listas de verificación y salud de la colmena.",
+    whatsNext: "Qué Sigue",
+    nextText: "Consulta las próximas reuniones y clases en Eventos. Si aún no hay nada publicado, vuelve pronto.",
+    questions: "Preguntas",
+    questionsText: "¿Necesitas ayuda o tienes una pregunta general? Ve a Contacto.",
+    contactTitle: "Contacto",
+    contactIntro: "Preguntas, membresía o información general — envíanos un mensaje abajo.",
+    contactHeader: "Enviar Mensaje",
+    labelName: "Nombre",
+    labelEmail: "Correo Electrónico",
+    labelTopic: "Tema",
+    labelMessage: "Mensaje",
+    btnSend: "Enviar",
+    eventsTitle: "Eventos",
+    upcomingHeader: "Próximos",
+    howToRSVP: "Cómo Confirmar Asistencia",
+    searchEvents: "Buscar Eventos",
+    btnClear: "Borrar Búsqueda",
+    pastHeader: "Eventos Pasados",
+    resourcesTitle: "Recursos",
+    findResource: "Buscar un Recurso",
+    searchLabel: "Buscar Palabras Clave",
+    privacyTitle: "Declaración de Privacidad",
+    privacyText: "Este sitio guarda tu preferencia de idioma localmente para mejorar tu experiencia. No se recopilan datos personales ni externos. Puedes borrar tus preferencias guardadas en cualquier momento. Las preferencias almacenadas caducan automáticamente después de 7 días."
+  }
+};
+
+
 
 
 // language buttons
@@ -57,20 +120,16 @@ function setLanguage(lang) {
 
 
 
-// change text based on chosen language (just basic example)
+// change text based on chosen language
 function updateLanguage(lang) {
+  const text = translations[lang];
   const stuff = document.querySelectorAll('[data-key]');
+  
   stuff.forEach((item) => {
-    // i didn’t make a full translation system, but you could add one here
-    if (lang === 'es') {
-      if (item.dataset.key === 'title') item.textContent = 'Asociación de Apicultores del Condado de Boulder';
-    } else {
-      if (item.dataset.key === 'title') item.textContent = 'Boulder County Beekeepers Association';
-    }
+    const key = item.getAttribute('data-key');
+    if (text[key]) item.textContent = text[key];
   });
 }
-
-
 
 
 
@@ -200,7 +259,7 @@ if (contactForm) {
 
 
 
-    
+
     // clear the form
     contactForm.reset();
   });
