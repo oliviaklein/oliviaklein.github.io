@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boulder County Beekeepers — Events</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/today/style.css" defer>
+
+  <style>
+    main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
+    .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
+    .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
+    .event-list { list-style: none; padding: 0; margin: 0; }
+    .event-list li { padding: 8px 0; border-bottom: 1px dashed #1D1A05; }
+    .event-list li:last-child { border-bottom: none; }
+  </style>
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-brand">Boulder County Beekeepers</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/today/home.html">Home</a></li>
+      <li><a href="/today/resources.html">Resources</a></li>
+      <li><a href="/today/events.html" aria-current="page">Events</a></li>
+      <li><a href="/today/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button id="clearDataBtn">Clear My Data</button>
+  </div>
+
+  <main class="events-grid">
+    <header class="events-title">
+      <h1 data-key="eventsTitle">Events</h1>
+      <p id="eventsStatus" class="status" aria-live="polite"></p>
+    </header>
+
+    <section class="panel events-upcoming">
+      <h2 data-key="upcomingHeader">Upcoming</h2>
+      <ul class="event-list" id="eventList">
+        <li><strong data-key="event1">Monthly Meeting</strong> — Date TBD — Topic: Seasonal Hive Care</li>
+        <li><strong data-key="event2">Beginner Basics (Class)</strong> — Registration opens soon</li>
+        <li><strong data-key="event3">Field Day</strong> — Date TBA — Hands-on Inspection Practice</li>
+      </ul>
+      <p style="margin-top:10px;" data-key="checkBack">If you don’t see new items yet, please check back soon.</p>
+    </section>
+
+    <section class="panel events-controls">
+      <h2 data-key="howToRSVP">How to RSVP</h2>
+
+      <label for="eventSearch" data-key="searchEvents">Search Events</label>
+      <input id="eventSearch" class="filter-input" type="search" placeholder="Try: class, field day">
+      <button id="clearEventFilters" type="button" style="margin-top:8px" data-key="btnClear">Clear Search</button>
+
+      <p data-key="rsvpNote">RSVP details will be posted with each event here. For questions, use the Contact page.</p>
+    </section>
+
+    <section class="panel events-past">
+      <h2 data-key="pastHeader">Past Highlights</h2>
+      <ul class="event-list">
+        <li data-key="past1">Workshop: Varroa Monitoring & Treatment Basics</li>
+        <li data-key="past2">Talk: Pollinator-Friendly Gardening in Boulder County</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="privacy">
+    <h3 data-key="privacyTitle">Privacy Statement</h3>
+    <p data-key="privacyText">
+      This site stores your language preference locally to improve your experience. 
+      No personal or external data is collected. You can clear your saved preferences anytime. 
+      Stored preferences automatically expire after 7 days.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

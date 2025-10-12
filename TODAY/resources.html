@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boulder County Beekeepers — Resources</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/today/style.css" defer>
+
+  <style>
+    main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
+    .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
+    .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
+    li { line-height: 1.6; }
+    .nav-spacer { height: 8px; }
+  </style>
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-brand">Boulder County Beekeepers</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/today/home.html">Home</a></li>
+      <li><a href="/today/resources.html" aria-current="page">Resources</a></li>
+      <li><a href="/today/events.html">Events</a></li>
+      <li><a href="/today/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button id="clearDataBtn">Clear My Data</button>
+  </div>
+
+  <main class="resources-grid">
+    <h1 class="resources-title" data-key="resourcesTitle">Resources</h1>
+
+    <section class="panel resources-filters">
+      <h2 data-key="findResource">Find a Resource</h2>
+      <label for="resourceSearch" data-key="searchLabel">Search Keywords</label>
+      <input id="resourceSearch" class="filter-input" type="search" placeholder="Try: varroa, starter kit, plants">
+      <p id="resourcesStatus" class="status" aria-live="polite"></p>
+    </section>
+
+    <div class="resources-list" id="resourceContainer">
+      <section class="panel">
+        <h2 data-key="basicsTitle">Beekeeping Basics</h2>
+        <ul>
+          <li>Seasonal Checklist (Spring / Summer / Fall / Winter)</li>
+          <li>Starter Equipment List</li>
+          <li>Safety Tips and Protective Gear</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2 data-key="healthTitle">Hive Health</h2>
+        <ul>
+          <li>Varroa Mites — Monitoring & Treatment Overview</li>
+          <li>Common Diseases (AFB, EFB, Nosema) Quick Notes</li>
+          <li>Feeding and Nutrition Basics</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2 data-key="gardenTitle">Pollinator-Friendly Gardening</h2>
+        <ul>
+          <li>Native Plants & Bloom Timing</li>
+          <li>Pesticide Safety and Alternatives</li>
+          <li>Creating Habitat: Water, Shelter, Forage</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2 data-key="localTitle">Local Info</h2>
+        <ul>
+          <li>Local Regulations & HOA Considerations</li>
+          <li>Where to Find Supplies in Boulder County</li>
+          <li>Who to Contact for General Questions (See the Contact Page)</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="privacy">
+    <h3 data-key="privacyTitle">Privacy Statement</h3>
+    <p data-key="privacyText">
+      This site stores your language preference locally to improve your experience. 
+      No personal or external data is collected. You can clear your saved preferences anytime. 
+      Stored preferences automatically expire after 7 days.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

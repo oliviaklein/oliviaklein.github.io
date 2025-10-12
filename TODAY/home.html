@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boulder County Beekeepers — Home</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/today/style.css" defer>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      color: #1D1A05;
+    }
+
+    /* --- Hero --- */
+    .home-hero {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 28px 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .home-hero h1 {
+      font-family: "Lexend", sans-serif;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+    .home-hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 750px;
+      margin: 0 auto 20px;
+    }
+    .home-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .home-buttons button {
+      background: #E2C044;
+      border: 1.5px solid #1D1A05;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: "Lexend", sans-serif;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .home-buttons button:hover {
+      background: #F8E9B5;
+      transform: scale(1.05);
+    }
+    .hero-image {
+      width: 100%;
+      border: 2px solid #1D1A05;
+      border-radius: 0;
+      display: block;
+      margin-top: 16px;
+    }
+
+    /* --- Section boxes --- */
+    .boxed-section {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 28px 20px;
+      margin-top: 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .boxed-section h2 {
+      text-align: center;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      border-bottom: 1.5px solid #1D1A05;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .boxed-section p {
+      line-height: 1.6;
+      margin: 10px auto;
+      max-width: 800px;
+    }
+
+    /* --- Bee A Member --- */
+    #membership { text-align: left; }
+    #membership h2 { text-align: center; }
+    #membership .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    #membership .text {
+      flex: 1 1 60%;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    #membership .section-image {
+      flex: 1 1 35%;
+      max-width: 360px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #membership .section-image img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #1D1A05;
+      border-radius: 10px 10px 0 0;
+      display: block;
+    }
+    #membership .caption {
+      border: 2px solid #1D1A05;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+      background: #FFF8E7;
+      width: 100%;
+    }
+
+    /* --- History --- */
+    #history { text-align: center; }
+    #history .section-image {
+      margin: 20px auto;
+      max-width: 600px;
+      position: relative;
+    }
+    #history .section-image img {
+      width: 100%;
+      border: 2px solid #1D1A05;
+      border-radius: 10px 10px 0 0;
+      display: block;
+    }
+    #history .caption {
+      border: 2px solid #1D1A05;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+      background: #FFF8E7;
+    }
+
+    /* --- Gallery --- */
+    #gallery { text-align: center; }
+    .gallery-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+      margin-top: 20px;
+    }
+    #gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+    #gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    /* --- Footer --- */
+    footer.privacy {
+      background: #E2C044;
+      border-top: 1px solid #1D1A05;
+      text-align: center;
+      padding: 16px;
+      margin-top: 60px;
+      color: #1D1A05;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    footer.privacy h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-brand">Boulder County Beekeepers</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/today/home.html" aria-current="page">Home</a></li>
+      <li><a href="/today/resources.html">Resources</a></li>
+      <li><a href="/today/events.html">Events</a></li>
+      <li><a href="/today/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button id="clearDataBtn">Clear My Data</button>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="home-hero">
+      <h1>Boulder County Beekeepers Association</h1>
+      <p>Our mission is to foster responsible beekeeping in Boulder County, Colorado, through education, public service and conscientious beekeeping.</p>
+      <div class="home-buttons">
+        <button onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">Bee A Member</button>
+        <button onclick="document.getElementById('history').scrollIntoView({behavior:'smooth'})">Our History</button>
+        <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Photo Gallery</button>
+      </div>
+      <img class="hero-image" src="/today/images/bees1.avif" alt="Bees gathering around a hive entrance in Boulder County">
+    </section>
+
+    <!-- Bee A Member -->
+    <section id="membership" class="boxed-section">
+      <h2>Bee A Member</h2>
+      <div class="section-content">
+        <div class="text">
+          <p>Annual membership dues are per person, per calendar year. Dues are $18 for BCBA (Boulder County Beekeepers Association) and $7 for CSBA (Colorado State Beekeepers Association). Please pay $25 electronically.</p>
+          <p><strong>PayPal:</strong> @bouldercountybee</p>
+          <p>Contact treasurer to get further instructions, or use the QR code.</p>
+          <p>Alternatively, fill out the BCBA Membership Form and mail a check.</p>
+          <p><a href="#" style="text-decoration: underline;">BCBA Membership Form 2025</a></p>
+          <p>New members are welcome throughout the year.</p>
+        </div>
+        <div class="section-image">
+          <img src="/today/images/members.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
+          <div class="caption">BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section id="history" class="boxed-section">
+      <h2>Our History</h2>
+      <p>In the late 1800’s and early 1900’s Boulder County was a major center for honey production in Colorado with a number of large commercial producers. In addition to large commercial operations most agricultural communities had one or more “community beekeepers.” These were individuals or families who secured all or part of a modest living through beekeeping...</p>
+      <div class="section-image">
+        <img src="/today/images/history.jpg" alt="Historic beekeeping in Boulder County, Colorado">
+        <div class="caption">Sturtevant, J. B. (Joseph Bevier), 1851–1910 (Boulder, Colo.) Photographer</div>
+      </div>
+      <p>Beekeeping has declined significantly here in the past 50 years and yet there remains a healthy community pursuing this arcane craft in Boulder County...</p>
+      <p><em>— Tom Theobald, Boulder County Beekeepers’ Association</em></p>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="boxed-section">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid">
+        <img src="/today/images/beekeep.avif" alt="Beekeeper inspecting frames in a hive">
+        <img src="/today/images/beekeep2.avif" alt="Beekeeper working in the field">
+        <img src="/today/images/bee3.avif" alt="Bee close-up collecting nectar">
+        <img src="/today/images/bees1.avif" alt="Bees flying around hive entrance">
+        <img src="/today/images/members.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
+        <img src="/today/images/history.jpg" alt="Historic beekeeping photo in Boulder County">
+        <img src="/today/images/bee1.avif" alt="Close-up of a bee collecting pollen">
+        <img src="/today/images/bee2.avif" alt="Bee on a flower collecting nectar">
+      </div>
+    </section>
+  </main>
+
+  <footer class="privacy">
+    <h3>Privacy Statement</h3>
+    <p>This site saves your language preference locally to improve your experience. No personal data is collected, and you can clear saved preferences anytime.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
