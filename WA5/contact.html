@@ -14,87 +14,308 @@
   <link rel="stylesheet" href="/WA5/style.css" defer>
 
   <style>
-    /* basic form styling */
-    main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
-    form { margin-top: 12px; }
-    label { display:block; margin:10px 0 4px; }
+    html { scroll-behavior: smooth; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      color: #1D1A05;
+    }
+
+    /* --- Title Block --- */
+    .contact-header {
+      text-align: center;
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .contact-header h1 {
+      font-family: "Lexend", sans-serif;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-header h2 {
+      font-family: "Lexend", sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* --- Navigation Buttons --- */
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .contact-buttons button {
+      background: #E2C044;
+      border: 1.5px solid #1D1A05;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: "Lexend", sans-serif;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .contact-buttons button:hover {
+      background: #F8E9B5;
+      transform: scale(1.05);
+    }
+
+    /* --- Divider Image --- */
+    .divider-image {
+      width: 100%;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    /* --- Section boxes --- */
+    .boxed-section {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 30px 24px;
+      margin-top: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .boxed-section h2 {
+      text-align: center;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 24px;
+      border-bottom: 1.5px solid #1D1A05;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 6px;
+    }
+
+    .boxed-section p, .boxed-section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 10px auto;
+      max-width: 850px;
+      text-align: left;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+
+    a {
+      color: #1D1A05;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #7a672e;
+    }
+
+    /* --- Contact Form --- */
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    form label {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
     input, select, textarea {
-      width:95%; padding:10px; background:#F9F3DC; color:#1D1A05;
-      border:1px solid #1D1A05; border-radius:6px;
+      width: 100%;
+      padding: 10px;
+      background: #FFF8E7;
+      color: #1D1A05;
+      border: 1.5px solid #1D1A05;
+      border-radius: 6px;
+      font-size: 1rem;
     }
-    button {
-      margin-top: 12px; padding:10px 14px; background:#B9AAA2; color:#1D1A05;
-      border:1.2px solid #1D1A05; border-radius:6px; cursor:pointer;
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
     }
-    button:hover { background:#D3CAC5; }
-    .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
-    .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
-    .nav-spacer { height: 8px; }
+
+    button.submit-btn {
+      align-self: center;
+      background: #E2C044;
+      border: 1.5px solid #1D1A05;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: "Lexend", sans-serif;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    button.submit-btn:hover {
+      background: #F8E9B5;
+      transform: scale(1.05);
+    }
+
+    /* --- Footer --- */
+    footer.privacy {
+      background: #E2C044;
+      border-top: 1px solid #1D1A05;
+      text-align: center;
+      padding: 16px;
+      margin-top: 60px;
+      color: #1D1A05;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer.privacy h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- nav bar -->
   <nav class="main-nav">
-    <div class="language-switcher">
-      <button onclick="setLanguage('en')">English</button>
-      <button onclick="setLanguage('es')">Español</button>
-      <button id="clearDataBtn">Clear My Data</button>
-    </div>
-
-    
-    <div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
-    <div class="nav-spacer"></div>
-
     <div class="nav-brand">Boulder County Beekeepers</div>
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
     </button>
 
     <ul class="nav-menu" id="navMenu">
-      <li><a href="/WA5/home.html">Home</a></li>
-      <li><a href="/WA5/resources.html">Resources</a></li>
-      <li><a href="/WA5/events.html">Events</a></li>
-      <li><a href="/WA5/contact.html" aria-current="page">Contact</a></li>
+      <li><a href="/today/home.html">Home</a></li>
+      <li><a href="/today/resources.html">Resources</a></li>
+      <li><a href="/today/events.html">Events</a></li>
+      <li><a href="/today/contact.html" aria-current="page">Contact</a></li>
     </ul>
   </nav>
 
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button id="clearDataBtn">Clear My Data</button>
+  </div>
+
   <main>
-    <h1 data-key="contactTitle">Contact</h1>
-    <p data-key="contactIntro">Questions, membership, or general info — send us a note below.</p>
+    <div class="contact-header">
+      <h1>Contact Us</h1>
+      <h2>Give Us a Buzz</h2>
+      <p>We love hearing from our community! Whether you have questions about beekeeping, want to get involved, or need help with a swarm — reach out below.</p>
+    </div>
 
-    <form action="#" method="post" class="panel" id="contactForm" novalidate>
-      <h2 data-key="contactHeader">Send a Message</h2>
+    <!-- Navigation Buttons -->
+    <div class="contact-buttons">
+      <button onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">Message</button>
+      <button onclick="document.getElementById('listserv').scrollIntoView({behavior:'smooth'})">Email Lists</button>
+      <button onclick="document.getElementById('swarms').scrollIntoView({behavior:'smooth'})">Swarms</button>
+      <button onclick="document.getElementById('officers').scrollIntoView({behavior:'smooth'})">Officers</button>
+    </div>
 
-      <label for="name" data-key="labelName">Name</label>
-      <input id="name" name="name" type="text" required>
+    <img class="divider-image" src="https://images.unsplash.com/photo-1533425680956-fde56dbbe99e?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2070" alt="Close-up of bee on honeycomb">
 
-      <label for="email" data-key="labelEmail">Email</label>
-      <input id="email" name="email" type="email" required>
+    <!-- Message Box -->
+    <section class="boxed-section" id="message">
+      <h2>Send a Message</h2>
+      <form action="#" method="post" id="contactForm" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
 
-      <label for="topic" data-key="labelTopic">Topic</label>
-      <select id="topic" name="topic">
-        <option data-key="topicMembership">Membership</option>
-        <option data-key="topicEvents">Events</option>
-        <option data-key="topicResources">Resources</option>
-        <option data-key="topicGeneral">General Question</option>
-      </select>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
 
-      <label for="message" data-key="labelMessage">Message</label>
-      <textarea id="message" name="message" rows="2"></textarea>
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>Membership</option>
+          <option>Events</option>
+          <option>Resources</option>
+          <option>General Question</option>
+        </select>
 
-      <button type="submit" data-key="btnSend">Send</button>
-      <p id="formStatus" class="status" aria-live="polite"></p>
-    </form>
+        <label for="messageText">Message</label>
+        <textarea id="messageText" name="messageText"></textarea>
+
+        <button type="submit" class="submit-btn">Send</button>
+      </form>
+    </section>
+
+    <!-- Email Lists -->
+    <section class="boxed-section" id="listserv">
+      <h2>Email Lists</h2>
+      <p>If you would like to be added or removed from the “BCBA Beekeepers” list, please send your request to 
+      <a href="mailto:listserv@bouldercountybeekeepers.org">listserv@bouldercountybeekeepers.org</a>, replacing the &lt;&gt; with your full email address.</p>
+
+      <p><strong>TO SUBSCRIBE</strong><br>
+      Subject: BCBA Beekeepers Subscribe<br>
+      Message Body: Subscribe: &lt; enter your full email address here &gt;</p>
+
+      <p><strong>TO UNSUBSCRIBE</strong><br>
+      Subject: BCBA Beekeepers Unsubscribe<br>
+      Message Body: Unsubscribe: &lt; enter your full email address here &gt;</p>
+
+      <p><strong>Note:</strong> Only subscribe/unsubscribe requests will be processed. For questions, email 
+      <a href="mailto:info@bouldercountybeekeepers.org">info@bouldercountybeekeepers.org</a>.</p>
+    </section>
+
+    <!-- Swarms -->
+    <section class="boxed-section" id="swarms">
+      <h2>Swarms</h2>
+      <p>Swarming is a natural part of the honeybee reproductive cycle.  
+      If you see a swarm, please call your local swarm hotline to connect with a beekeeper who can collect it safely.</p>
+
+      <ul>
+        <li><strong>Boulder County Swarm Hotline:</strong> 1-844-779-2337 Ext. 3 or 970-213-3099 (Beth Conrey)</li>
+        <li><strong>Denver Metro Swarm Hotline:</strong> 1-844-779-2337 Ext. 1</li>
+        <li><strong>Northern Colorado Swarm Hotline:</strong> 1-844-779-2337 Ext. 6 (Berthoud, Fort Collins, Greeley, Loveland)</li>
+        <li><strong>CSBA Swarm Hotline:</strong> 1-844-SPY-BEES</li>
+      </ul>
+
+      <p>Boulder County calls go to Beth Conrey, who routes them by proximity. Expect calls from mid-April through June, with the busiest period from May 15–June 15.</p>
+
+      <p><strong>For Bee Removal from Structures:</strong><br>
+      Miles McGaughey — 720-771-4304<br>
+      Chad Street (Bees and Trees) — 720-357-1646</p>
+
+      <p><em>Note:</em> Bees inside structures require licensed, insured removal — this is a paid service.</p>
+    </section>
+
+    <!-- Officers -->
+    <section class="boxed-section" id="officers">
+      <h2>Officers</h2>
+      <p><strong>Ruth McGaughey</strong>, President — <a href="mailto:president@bouldercountybeekeepers.org">president@bouldercountybeekeepers.org</a></p>
+      <p><strong>Leslie Ratica</strong>, Secretary — <a href="mailto:secretary@bouldercountybeekeepers.org">secretary@bouldercountybeekeepers.org</a></p>
+      <p><strong>Eric Nudelman</strong>, Treasurer — <a href="mailto:treasurer@bouldercountybeekeepers.org">treasurer@bouldercountybeekeepers.org</a></p>
+      <p><strong>Board Members:</strong><br>
+      Marcie Mason<br>
+      Miles McGaughey<br>
+      Don Murray</p>
+      <p>Your questions are welcome at <a href="mailto:info@bouldercountybeekeepers.org">info@bouldercountybeekeepers.org</a>.</p>
+    </section>
   </main>
 
   <footer class="privacy">
-    <h3 data-key="privacyTitle">Privacy Statement</h3>
-    <p data-key="privacyText">
-      This site stores your language preference locally to improve your experience. 
-      No personal or external data is collected. You can clear your saved preferences anytime. 
-      Stored preferences automatically expire after 7 days.
-    </p>
+    <h3>Privacy Statement</h3>
+    <p>This site saves your language preference locally to improve your experience. No personal data is collected, and you can clear saved preferences anytime.</p>
   </footer>
 
   <script src="script.js"></script>
