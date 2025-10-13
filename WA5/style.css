@@ -107,31 +107,30 @@ body {
   }
 }
 
-/* language bar under nav */
+/* language buttons */
 .language-switcher {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  background: transparent;
-  padding: 10px 14px;
-  border: none; 
+  gap: 12px;
+  background: #F1E1A7;
+  padding: 10px;
 }
 
 .language-switcher button {
   background: #B9AAA2;
   border: 1.2px solid #1D1A05;
-  border-radius: 5px;
+  border-radius: 6px;
   color: #1D1A05;
-  padding: 4px 8px;
-  font-size: 0.85rem;
+  padding: 6px 12px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  font-size: 0.95rem;
+  transition: background-color .2s, transform .1s;
 }
 
 .language-switcher button:hover {
   background: #D3CAC5;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* popup message */
