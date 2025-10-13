@@ -1,13 +1,18 @@
-/* base */
+/* === BASE STYLES === */
 body {
   background-color: #C7CEDB;
   color: #1D1A05;
   margin: 0;
   font-family: "PT Sans", Calibri, "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
   line-height: 1.5;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* nav bar */
+body * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* === NAVIGATION BAR === */
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -49,7 +54,7 @@ body {
   outline: none;
 }
 
-/* nav toggle for mobile */
+/* === NAV TOGGLE (MOBILE) === */
 .nav-toggle {
   display: none;
   border: 1px solid #1D1A05;
@@ -75,7 +80,7 @@ body {
   width: 100%;
 }
 
-/* mobile nav menu */
+/* === MOBILE NAV MENU === */
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
 
@@ -107,35 +112,7 @@ body {
   }
 }
 
-/* language bar under nav */
-.language-switcher {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  padding: 10px 14px;
-  border: none; 
-}
-
-.language-switcher button {
-  background: #B9AAA2;
-  border: 1.2px solid #1D1A05;
-  border-radius: 5px;
-  color: #1D1A05;
-  padding: 4px 8px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.language-switcher button:hover {
-  background: #D3CAC5;
-  transform: scale(1.05);
-}
-
-/* forms + inputs */
-.filter-input,
+/* === FORMS + INPUTS === */
 input,
 select,
 textarea {
@@ -161,84 +138,7 @@ button:hover {
   background: #D3CAC5;
 }
 
-/* grid layouts */
-.home-grid,
-.events-grid,
-.resources-grid {
-  display: grid;
-  gap: 16px;
-}
-
-/* home page layout */
-.home-grid {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "hero"
-    "start"
-    "next"
-    "questions";
-}
-.home-hero { grid-area: hero; }
-.home-start { grid-area: start; }
-.home-next { grid-area: next; }
-.home-questions { grid-area: questions; }
-
-@media (min-width: 820px) {
-  .home-grid {
-    grid-template-columns: 1.2fr .8fr;
-    grid-template-areas:
-      "hero hero"
-      "start next"
-      "questions questions";
-  }
-}
-
-/* events page layout */
-.events-grid {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "title"
-    "upcoming"
-    "controls"
-    "past";
-}
-.events-title { grid-area: title; }
-.events-upcoming { grid-area: upcoming; }
-.events-controls { grid-area: controls; }
-.events-past { grid-area: past; }
-
-@media (min-width: 900px) {
-  .events-grid {
-    grid-template-columns: 1.4fr .6fr;
-    grid-template-areas:
-      "title title"
-      "upcoming controls"
-      "past controls";
-  }
-}
-
-/* resources page layout */
-.resources-grid {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "title"
-    "filters"
-    "list";
-}
-.resources-title { grid-area: title; }
-.resources-filters { grid-area: filters; }
-.resources-list { grid-area: list; }
-
-@media (min-width: 900px) {
-  .resources-grid {
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-      "title title"
-      "list filters";
-  }
-}
-
-/* small helpers */
+/* === SMALL HELPERS === */
 .status {
   font-size: .95rem;
   margin-top: 6px;
@@ -246,7 +146,7 @@ button:hover {
 
 .is-hidden { display: none !important; }
 
-/* footer */
+/* === FOOTER === */
 footer.privacy {
   background: #E2C044;
   border-top: 1px solid #1D1A05;
@@ -263,27 +163,22 @@ footer.privacy h3 {
   margin-bottom: 6px;
 }
 
-
-
-
-/* --- Theme Switcher Buttons --- */
+/* === THEME SWITCHER BUTTONS === */
 .theme-switcher {
   display: flex;
-  justify-content: flex-start;  /* pushes buttons to the left */
+  justify-content: flex-start;
   gap: 8px;
-  margin-top: 10px;             /* moves them lower down */
-  margin-left: 10px;            /* indents from the left edge */
-  margin-bottom: 10px;
+  margin: 10px 0 10px 10px;
 }
 
 .theme-switcher button {
   background: #E2C044;
   border: 1.5px solid #1D1A05;
   border-radius: 6px;
-  padding: 4px 10px;            /* thinner buttons */
+  padding: 4px 10px;
   cursor: pointer;
   font-family: "Lexend", sans-serif;
-  font-size: 0.85rem;           /* smaller text */
+  font-size: 0.85rem;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
@@ -292,14 +187,13 @@ footer.privacy h3 {
   transform: scale(1.05);
 }
 
-
 /* === UNIVERSAL DARK MODE THEME (Honey Gold Edition) === */
 body.dark {
-  background-color: #1E1A12;  /* deep warm brown */
-  color: #F8E9B5;             /* soft honey text */
+  background-color: #1E1A12;
+  color: #F8E9B5;
 }
 
-/* === ALL MAIN CONTAINERS & BOXES === */
+/* === CONTAINERS & BOXES === */
 body.dark .boxed-section,
 body.dark .contact-header,
 body.dark .home-hero,
@@ -313,8 +207,8 @@ body.dark .event-box,
 body.dark .local-box,
 body.dark .officer-box,
 body.dark footer.privacy {
-  background-color: #2A2418;  /* dark walnut */
-  border-color: #E2C044;      /* golden border */
+  background-color: #2A2418;
+  border-color: #E2C044;
   color: #F8E9B5;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -327,7 +221,7 @@ body.dark h3 {
   border-color: #E2C044;
 }
 
-/* === NAVIGATION BAR === */
+/* === NAV BAR (DARK MODE) === */
 body.dark .main-nav {
   background-color: #2A2418;
   border-bottom: 1px solid #E2C044;
@@ -344,13 +238,12 @@ body.dark .nav-menu a:hover {
   color: #1E1A12;
 }
 
-/* === BUTTONS === */
+/* === BUTTONS (DARK MODE) === */
 body.dark button,
 body.dark .submit-btn {
   background-color: #E2C044;
   color: #1E1A12;
   border: 1.5px solid #F8E9B5;
-  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 body.dark button:hover,
@@ -360,7 +253,7 @@ body.dark .submit-btn:hover {
   transform: scale(1.05);
 }
 
-/* === INPUT FIELDS === */
+/* === INPUT FIELDS (DARK MODE) === */
 body.dark input,
 body.dark select,
 body.dark textarea {
@@ -374,7 +267,7 @@ body.dark textarea::placeholder {
   color: #C7B778;
 }
 
-/* === LINKS === */
+/* === LINKS (DARK MODE) === */
 body.dark a {
   color: #F8E9B5;
   text-decoration: underline;
@@ -389,7 +282,7 @@ body.dark .divider-image {
   border: 2px solid #E2C044;
 }
 
-/* === FOOTER === */
+/* === FOOTER (DARK MODE) === */
 body.dark footer.privacy {
   background-color: #2A2418;
   border-top: 1px solid #E2C044;
