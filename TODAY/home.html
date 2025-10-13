@@ -96,8 +96,16 @@
     }
 
     /* --- Bee A Member --- */
-    #membership { text-align: left; }
-    #membership h2 { text-align: center; }
+    #membership {
+      text-align: left;
+    }
+    #membership h2 {
+      text-align: center;
+      display: inline-block;
+      border-bottom: 1.5px solid #1D1A05;
+      padding-bottom: 8px;
+      margin: 0 auto 16px;
+    }
     #membership .section-content {
       display: flex;
       flex-wrap: wrap;
@@ -122,22 +130,14 @@
       width: 100%;
       height: auto;
       border: 2px solid #1D1A05;
-      border-radius: 10px 10px 0 0;
+      border-radius: 10px;
       display: block;
-    }
-    #membership .caption {
-      border: 2px solid #1D1A05;
-      border-top: none;
-      border-radius: 0 0 10px 10px;
-      text-align: center;
-      padding: 6px 8px;
-      font-size: 0.9rem;
-      background: #FFF8E7;
-      width: 100%;
     }
 
     /* --- History --- */
-    #history { text-align: center; }
+    #history {
+      text-align: center;
+    }
     #history .section-image {
       margin: 20px auto;
       max-width: 600px;
@@ -146,17 +146,8 @@
     #history .section-image img {
       width: 100%;
       border: 2px solid #1D1A05;
-      border-radius: 10px 10px 0 0;
+      border-radius: 10px;
       display: block;
-    }
-    #history .caption {
-      border: 2px solid #1D1A05;
-      border-top: none;
-      border-radius: 0 0 10px 10px;
-      text-align: center;
-      padding: 6px 8px;
-      font-size: 0.9rem;
-      background: #FFF8E7;
     }
 
     /* --- Gallery --- */
@@ -228,13 +219,13 @@
         <button onclick="document.getElementById('history').scrollIntoView({behavior:'smooth'})">Our History</button>
         <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Photo Gallery</button>
       </div>
-      <img class="hero-image" src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2190" alt="Bees gathering around a hive entrance in Boulder County">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2190" alt="Bees gathering around a hive entrance in Boulder County">
     </section>
 
     <!-- Bee A Member -->
-    <section id="membership" class="boxed-section">
+    <section id="membership" class="boxed-section" style="text-align:center;">
       <h2>Bee A Member</h2>
-      <div class="section-content">
+      <div class="section-content" style="text-align:left;">
         <div class="text">
           <p>Annual membership dues are per person, per calendar year. Dues are $18 for BCBA (Boulder County Beekeepers Association) and $7 for CSBA (Colorado State Beekeepers Association). Please pay $25 electronically.</p>
           <p><strong>PayPal:</strong> @bouldercountybee</p>
@@ -244,8 +235,7 @@
           <p>New members are welcome throughout the year.</p>
         </div>
         <div class="section-image">
-          <img src="/today/images/members.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
-          <div class="caption">BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival.</div>
+          <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/2022-BCBA-Booth-Liz-and-Mike-768x576.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
         </div>
       </div>
     </section>
@@ -253,12 +243,14 @@
     <!-- History -->
     <section id="history" class="boxed-section">
       <h2>Our History</h2>
-      <p>In the late 1800’s and early 1900’s Boulder County was a major center for honey production in Colorado with a number of large commercial producers. In addition to large commercial operations most agricultural communities had one or more “community beekeepers.” These were individuals or families who secured all or part of a modest living through beekeeping...</p>
+      <p>In the late 1800’s and early 1900’s Boulder County was a major center for honey production in Colorado with a number of large commercial producers. In addition to large commercial operations most agricultural communities had one or more “community beekeepers.” These were individuals or families who secured all or part of a modest living through beekeeping. In the process of producing honey, beekeepers provided valuable pollination for orchards, gardens, field crops and wild plants. During this period Boulder County honey was shipped east by the carload as it was considered a great delicacy.</p>
+      
       <div class="section-image">
-        <img src="/today/images/history.jpg" alt="Historic beekeeping in Boulder County, Colorado">
-        <div class="caption">Sturtevant, J. B. (Joseph Bevier), 1851–1910 (Boulder, Colo.) Photographer</div>
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/history-photo1-570x355.jpg" alt="Historic beekeeping in Boulder County, Colorado">
       </div>
-      <p>Beekeeping has declined significantly here in the past 50 years and yet there remains a healthy community pursuing this arcane craft in Boulder County...</p>
+
+      <p>Beekeeping has declined significantly here in the past 50 years and yet there remains a healthy community pursuing this arcane craft in Boulder County. The majority are hobbiests while a handful would qualify for the term “community beekeeper.” Most support their beekeeping or supplement their income through the sale of honey products in excess of their personal needs.</p>
+      <p>Fully one third of all we eat is dependent upon honey bee pollination. But beekeepers are struggling for survival in the face of changing land use, heavy use of agricultural pesticides and a market flooded with foreign honey. Your support of local beekeepers will help to keep alive this old and intricate craft as a part of the region’s agricultural heritage and bring to you the enjoyment of a honey long regarded as one of the finest in the United States.</p>
       <p><em>— Tom Theobald, Boulder County Beekeepers’ Association</em></p>
     </section>
 
@@ -266,14 +258,14 @@
     <section id="gallery" class="boxed-section">
       <h2>Photo Gallery</h2>
       <div class="gallery-grid">
-        <img src="https://images.unsplash.com/photo-1641822888635-97d60ecd9acd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1035" alt="Beekeeper inspecting frames in a hive">
-        <img src="/today/images/beekeep2.avif" alt="Beekeeper working in the field">
-        <img src="/today/images/bee3.avif" alt="Bee close-up collecting nectar">
-        <img src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2190" alt="Bees flying around hive entrance">
-        <img src="/today/images/members.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
-        <img src="/today/images/history.jpg" alt="Historic beekeeping photo in Boulder County">
-        <img src="/today/images/bee1.avif" alt="Close-up of a bee collecting pollen">
-        <img src="/today/images/bee2.avif" alt="Bee on a flower collecting nectar">
+        <img src="https://images.unsplash.com/photo-1641822888635-97d60ecd9acd?auto=format&fit=crop&q=80&w=1035" alt="Beekeeper inspecting frames in a hive">
+        <img src="https://images.unsplash.com/photo-1550170139-ed6b5e6b4c38?auto=format&fit=crop&q=80&w=1035" alt="Beekeeper working in the field">
+        <img src="https://images.unsplash.com/photo-1682435487817-97287a23462c?auto=format&fit=crop&q=80&w=1674" alt="Bee close-up collecting nectar">
+        <img src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?auto=format&fit=crop&q=80&w=2190" alt="Bees flying around hive entrance">
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/2022-BCBA-Booth-Liz-and-Mike-768x576.jpg" alt="BCBA members Liz and Mike">
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/history-photo1-570x355.jpg" alt="Historic beekeeping photo">
+        <img src="https://images.unsplash.com/photo-1621777935104-7e254b7fc598?auto=format&fit=crop&q=80&w=987" alt="Close-up of a bee collecting pollen">
+        <img src="https://images.unsplash.com/photo-1622380997944-c00207483cce?auto=format&fit=crop&q=80&w=2231" alt="Bee on a flower collecting nectar">
       </div>
     </section>
   </main>
