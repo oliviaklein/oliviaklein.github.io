@@ -47,7 +47,7 @@ if (contactForm) {
   });
 }
 
-// === THEME SWITCHER ===
+// === THEME SWITCH ===
 // Save user's theme choice
 function setTheme(theme) {
   localStorage.setItem('userTheme', theme);

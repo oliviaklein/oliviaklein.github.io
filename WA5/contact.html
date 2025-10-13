@@ -23,7 +23,7 @@
       color: #1D1A05;
     }
 
-    /* --- Title Block --- */
+    /* --- title --- */
     .contact-header {
       text-align: center;
       background: #F1E1A7;
@@ -53,7 +53,7 @@
       line-height: 1.7;
     }
 
-    /* --- Navigation Buttons --- */
+    /* --- navigation button --- */
     .contact-buttons {
       display: flex;
       justify-content: center;
@@ -78,7 +78,7 @@
       transform: scale(1.05);
     }
 
-    /* --- Divider Image --- */
+    /* --- Image divide --- */
     .divider-image {
       width: 100%;
       border: 2px solid #1D1A05;
@@ -86,7 +86,7 @@
       margin-bottom: 40px;
     }
 
-    /* --- Section boxes --- */
+    /* --- section boxes --- */
     .boxed-section {
       background: #F1E1A7;
       border: 2px solid #1D1A05;
@@ -130,7 +130,7 @@
       color: #7a672e;
     }
 
-    /* --- Contact Form --- */
+    /* --- contact form --- */
     form {
       max-width: 700px;
       margin: 0 auto;
@@ -224,7 +224,7 @@
       <p>We love hearing from our community! Whether you have questions about beekeeping, want to get involved, or need help with a swarm — reach out below.</p>
     </div>
 
-    <!-- Navigation Buttons -->
+    <!-- nav buttons -->
     <div class="contact-buttons">
       <button onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">Message</button>
       <button onclick="document.getElementById('listserv').scrollIntoView({behavior:'smooth'})">Email Lists</button>
@@ -234,7 +234,7 @@
 
     <img class="divider-image" src="https://images.unsplash.com/photo-1533425680956-fde56dbbe99e?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2070" alt="Close-up of bee on honeycomb">
 
-    <!-- Message Box -->
+    <!-- message box -->
     <section class="boxed-section" id="message">
       <h2>Send a Message</h2>
       <form action="#" method="post" id="contactForm" novalidate>
@@ -259,7 +259,7 @@
       </form>
     </section>
 
-    <!-- Email Lists -->
+    <!-- email list -->
     <section class="boxed-section" id="listserv">
       <h2>Email Lists</h2>
       <p>If you would like to be added or removed from the “BCBA Beekeepers” list, please send your request to 
@@ -277,7 +277,7 @@
       <a href="mailto:info@bouldercountybeekeepers.org">info@bouldercountybeekeepers.org</a>.</p>
     </section>
 
-    <!-- Swarms -->
+    <!-- swarms -->
     <section class="boxed-section" id="swarms">
       <h2>Swarms</h2>
       <p>Swarming is a natural part of the honeybee reproductive cycle.  
@@ -320,30 +320,6 @@
 
   <script src="script.js"></script>
 
-  <script>
-// === THEME SWITCHER ===
 
-// Save user's theme choice
-function setTheme(theme) {
-  localStorage.setItem('userTheme', theme);
-  document.body.className = theme;
-}
-
-// Load saved theme on page load
-window.addEventListener('load', function() {
-  const savedTheme = localStorage.getItem('userTheme') || 'light';
-  document.body.className = savedTheme;
-});
-
-// Clear saved data (theme + any others)
-const clearDataBtn = document.getElementById('clearDataBtn');
-if (clearDataBtn) {
-  clearDataBtn.addEventListener('click', () => {
-    localStorage.clear();
-    alert("Your saved data has been cleared!");
-    document.body.className = 'light';
-  });
-}
-</script>
 </body>
 </html>
