@@ -1,54 +1,28 @@
-// nav toggle button
+// === NAV TOGGLE ===
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.getElementById('navMenu');
 
-
-
-
-
-// when you click the nav button it opens and closes the menu
-navToggle.addEventListener('click', () => {
-  const isOpen = navMenu.classList.toggle('show');
-  navToggle.setAttribute('aria-expanded', isOpen);
-  navToggle.classList.toggle('open');
-});
-
-
-
-
-
-// clear data button
-const clearDataBtn = document.getElementById('clearDataBtn');
-const popupMessage = document.getElementById('popupMessage');
-
-
-
-
-
-// this just clears local storage and shows a small message
-clearDataBtn.addEventListener('click', () => {
-  localStorage.clear();
-  showPopup();
-});
-
-
-
-
-
-// show popup for a few seconds
-function showPopup() {
-  popupMessage.classList.add('show');
-  setTimeout(() => {
-    popupMessage.classList.remove('show');
-  }, 2500);
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('show');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.classList.toggle('open');
+  });
 }
 
+// === CLEAR DATA BUTTON ===
+const clearDataBtn = document.getElementById('clearDataBtn');
+if (clearDataBtn) {
+  clearDataBtn.addEventListener('click', () => {
+    localStorage.clear();
+    alert("Your saved data has been cleared!");
+  });
+}
 
-
-// a lot of translations from english to spanish for website translation
+// === TRANSLATIONS ===
 const translations = {
   en: {
-    // home
+    // HOME
     title: "Boulder County Beekeepers Association",
     mission: "Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education, public service and conscientious beekeeping.”",
     startHere: "Start Here",
@@ -58,7 +32,7 @@ const translations = {
     questions: "Questions",
     questionsText: "Need help or have a general question? Head to Contact.",
 
-    // contact
+    // CONTACT
     contactTitle: "Contact",
     contactIntro: "Questions, membership, or general info — send us a note below.",
     contactHeader: "Send a Message",
@@ -72,7 +46,7 @@ const translations = {
     labelMessage: "Message",
     btnSend: "Send",
 
-    // events
+    // EVENTS
     eventsTitle: "Events",
     upcomingHeader: "Upcoming",
     event1: "Monthly Meeting",
@@ -87,43 +61,22 @@ const translations = {
     past1: "Workshop: Varroa Monitoring & Treatment Basics",
     past2: "Talk: Pollinator-Friendly Gardening in Boulder County",
 
-    // resources
+    // RESOURCES
     resourcesTitle: "Resources",
     findResource: "Find a Resource",
     searchLabel: "Search Keywords",
     basicsTitle: "Beekeeping Basics",
-    basicsTitle: "Beekeeping Basics",
-    basics1: "Seasonal Checklist (Spring / Summer / Fall / Winter)",
-    basics2: "Starter Equipment List",
-    basics3: "Safety Tips and Protective Gear",
     healthTitle: "Hive Health",
-    health1: "Varroa Mites — Monitoring & Treatment Overview",
-    health2: "Common Diseases (AFB, EFB, Nosema) Quick Notes",
-    health3: "Feeding and Nutrition Basics",
     gardenTitle: "Pollinator-Friendly Gardening",
-    garden1: "Native Plants & Bloom Timing",
-    garden2: "Pesticide Safety and Alternatives",
-    garden3: "Creating Habitat: Water, Shelter, Forage",
     localTitle: "Local Info",
-    local1: "Local Regulations & HOA Considerations",
-    local2: "Where to Find Supplies in Boulder County",
-    local3: "Who to Contact for General Questions (See the Contact Page)",
 
-    // privacy
+    // PRIVACY
     privacyTitle: "Privacy Statement",
     privacyText: "This site stores your language preference locally to improve your experience. No personal or external data is collected. You can clear your saved preferences anytime. Stored preferences automatically expire after 7 days."
   },
 
-
-
-
-
-
-
-
-  
   es: {
-    // home translated
+    // HOME
     title: "Asociación de Apicultores del Condado de Boulder",
     mission: "Nuestra misión: “Fomentar la apicultura responsable en el Condado de Boulder, Colorado, mediante la educación, el servicio público y la apicultura consciente.”",
     startHere: "Empieza Aquí",
@@ -133,7 +86,7 @@ const translations = {
     questions: "Preguntas",
     questionsText: "¿Necesitas ayuda o tienes una pregunta general? Ve a Contacto.",
 
-    // contact translations
+    // CONTACT
     contactTitle: "Contacto",
     contactIntro: "Preguntas, membresía o información general — envíanos un mensaje abajo.",
     contactHeader: "Enviar Mensaje",
@@ -147,7 +100,7 @@ const translations = {
     labelMessage: "Mensaje",
     btnSend: "Enviar",
 
-    // events translations
+    // EVENTS
     eventsTitle: "Eventos",
     upcomingHeader: "Próximos",
     event1: "Reunión Mensual",
@@ -162,78 +115,49 @@ const translations = {
     past1: "Taller: Monitoreo y Tratamiento de Varroa",
     past2: "Charla: Jardinería Amigable con los Polinizadores en el Condado de Boulder",
 
-    // resources translated
+    // RESOURCES
     resourcesTitle: "Recursos",
     findResource: "Buscar un Recurso",
     searchLabel: "Buscar Palabras Clave",
     basicsTitle: "Conceptos Básicos de la Apicultura",
-    basicsTitle: "Conceptos Básicos de la Apicultura",
-    basics1: "Lista de Verificación Estacional (Primavera / Verano / Otoño / Invierno)",
-    basics2: "Lista de Equipos para Principiantes",
-    basics3: "Consejos de Seguridad y Equipo de Protección",
     healthTitle: "Salud de la Colmena",
-    health1: "Ácaros Varroa — Resumen de Monitoreo y Tratamiento",
-    health2: "Enfermedades Comunes (AFB, EFB, Nosema) — Notas Rápidas",
-    health3: "Conceptos Básicos de Alimentación y Nutrición",
     gardenTitle: "Jardinería Amigable con los Polinizadores",
-    garden1: "Plantas Nativas y Épocas de Floración",
-    garden2: "Seguridad con Pesticidas y Alternativas",
-    garden3: "Creación de Hábitat: Agua, Refugio y Alimento",
     localTitle: "Información Local",
-    local1: "Reglamentos Locales y Consideraciones de HOA",
-    local2: "Dónde Encontrar Suministros en el Condado de Boulder",
-    local3: "A Quién Contactar para Preguntas Generales (Ver la Página de Contacto)",
-    
 
-    // privacy
+    // PRIVACY
     privacyTitle: "Declaración de Privacidad",
     privacyText: "Este sitio guarda tu preferencia de idioma localmente para mejorar tu experiencia. No se recopilan datos personales ni externos. Puedes borrar tus preferencias guardadas en cualquier momento. Las preferencias almacenadas caducan automáticamente después de 7 días."
   }
 };
 
-
-
-
-// language buttons
+// === LANGUAGE FUNCTIONS ===
 function setLanguage(lang) {
   localStorage.setItem('language', lang);
   updateLanguage(lang);
 }
 
-
-
-
-
-// change text based on chosen language
 function updateLanguage(lang) {
   const text = translations[lang];
-  const stuff = document.querySelectorAll('[data-key]');
-  
-  stuff.forEach((item) => {
+  if (!text) return;
+
+  document.querySelectorAll('[data-key]').forEach((item) => {
     const key = item.getAttribute('data-key');
     if (text[key]) item.textContent = text[key];
   });
 }
 
-
-
-// keep saved language between visits
+// === KEEP SAVED LANGUAGE ===
 const savedLang = localStorage.getItem('language');
-if (savedLang) updateLanguage(savedLang);
+if (savedLang) {
+  updateLanguage(savedLang);
+}
 
-
-
-
-
-// resources search filter
+// === RESOURCES SEARCH FILTER ===
 const resourceSearch = document.getElementById('resourceSearch');
 const resourceContainer = document.getElementById('resourceContainer');
 const resourcesStatus = document.getElementById('resourcesStatus');
 
-
-
-
-if (resourceSearch) {
+if (resourceSearch && resourceContainer) {
   resourceSearch.addEventListener('input', () => {
     const term = resourceSearch.value.toLowerCase();
     const panels = resourceContainer.querySelectorAll('.panel');
@@ -249,11 +173,6 @@ if (resourceSearch) {
       }
     });
 
-
-
-
-
-    // tell the user what’s happening
     if (term === '') {
       resourcesStatus.textContent = '';
     } else if (found > 0) {
@@ -264,12 +183,7 @@ if (resourceSearch) {
   });
 }
 
-
-
-
-
-
-// event search filter
+// === EVENT SEARCH FILTER ===
 const eventSearch = document.getElementById('eventSearch');
 const eventList = document.getElementById('eventList');
 const clearEventFilters = document.getElementById('clearEventFilters');
@@ -278,73 +192,39 @@ if (eventSearch && eventList) {
   eventSearch.addEventListener('input', () => {
     const term = eventSearch.value.toLowerCase();
     const items = eventList.querySelectorAll('li');
-
     items.forEach((item) => {
       const text = item.textContent.toLowerCase();
       item.style.display = text.includes(term) ? 'block' : 'none';
     });
   });
 
-
-
-
-
-
-
-  // clear search
-  clearEventFilters.addEventListener('click', () => {
-    eventSearch.value = '';
-    const items = eventList.querySelectorAll('li');
-    items.forEach((item) => item.style.display = 'block');
-  });
+  if (clearEventFilters) {
+    clearEventFilters.addEventListener('click', () => {
+      eventSearch.value = '';
+      const items = eventList.querySelectorAll('li');
+      items.forEach((item) => item.style.display = 'block');
+    });
+  }
 }
 
-
-
-
-
-
-
-// form validation (contact page)
+// === CONTACT FORM ===
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-
-
-
-
-
-    // grab input values
     const name = document.getElementById('name');
     const email = document.getElementById('email');
-    const message = document.getElementById('message');
     const formStatus = document.getElementById('formStatus');
 
-
-
-
-
-
-    // simple check (nothing fancy)
     if (!name.value.trim() || !email.value.trim()) {
       formStatus.textContent = 'Please fill in all required fields.';
       formStatus.style.color = 'red';
       return;
     }
 
-    
-
-
-    // pretend it sends (for now)
     formStatus.textContent = 'Message sent! (not really, but thanks for testing)';
     formStatus.style.color = 'green';
-
-
-
-
-    // clear the form
     contactForm.reset();
   });
 }
