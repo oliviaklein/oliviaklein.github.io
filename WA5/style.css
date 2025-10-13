@@ -262,3 +262,136 @@ footer.privacy h3 {
   font-size: 1.1rem;
   margin-bottom: 6px;
 }
+
+
+
+
+/* --- Theme Switcher Buttons --- */
+.theme-switcher {
+  display: flex;
+  justify-content: flex-start;  /* pushes buttons to the left */
+  gap: 8px;
+  margin-top: 10px;             /* moves them lower down */
+  margin-left: 10px;            /* indents from the left edge */
+  margin-bottom: 10px;
+}
+
+.theme-switcher button {
+  background: #E2C044;
+  border: 1.5px solid #1D1A05;
+  border-radius: 6px;
+  padding: 4px 10px;            /* thinner buttons */
+  cursor: pointer;
+  font-family: "Lexend", sans-serif;
+  font-size: 0.85rem;           /* smaller text */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.theme-switcher button:hover {
+  background: #F8E9B5;
+  transform: scale(1.05);
+}
+
+
+/* === UNIVERSAL DARK MODE THEME (Honey Gold Edition) === */
+body.dark {
+  background-color: #1E1A12;  /* deep warm brown */
+  color: #F8E9B5;             /* soft honey text */
+}
+
+/* === ALL MAIN CONTAINERS & BOXES === */
+body.dark .boxed-section,
+body.dark .contact-header,
+body.dark .home-hero,
+body.dark .resources-title,
+body.dark .events-title,
+body.dark .resources-buttons,
+body.dark .contact-buttons,
+body.dark .resources-section,
+body.dark .faq-box,
+body.dark .event-box,
+body.dark .local-box,
+body.dark .officer-box,
+body.dark footer.privacy {
+  background-color: #2A2418;  /* dark walnut */
+  border-color: #E2C044;      /* golden border */
+  color: #F8E9B5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* === HEADINGS === */
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #F8E9B5;
+  border-color: #E2C044;
+}
+
+/* === NAVIGATION BAR === */
+body.dark .main-nav {
+  background-color: #2A2418;
+  border-bottom: 1px solid #E2C044;
+}
+
+body.dark .nav-menu a {
+  color: #F8E9B5;
+  background-color: #3A3324;
+  border: 1px solid #E2C044;
+}
+
+body.dark .nav-menu a:hover {
+  background-color: #E2C044;
+  color: #1E1A12;
+}
+
+/* === BUTTONS === */
+body.dark button,
+body.dark .submit-btn {
+  background-color: #E2C044;
+  color: #1E1A12;
+  border: 1.5px solid #F8E9B5;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+body.dark button:hover,
+body.dark .submit-btn:hover {
+  background-color: #F8E9B5;
+  color: #1E1A12;
+  transform: scale(1.05);
+}
+
+/* === INPUT FIELDS === */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #3A3324;
+  color: #F8E9B5;
+  border: 1.5px solid #E2C044;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #C7B778;
+}
+
+/* === LINKS === */
+body.dark a {
+  color: #F8E9B5;
+  text-decoration: underline;
+}
+
+body.dark a:hover {
+  color: #FFD966;
+}
+
+/* === DIVIDER IMAGES === */
+body.dark .divider-image {
+  border: 2px solid #E2C044;
+}
+
+/* === FOOTER === */
+body.dark footer.privacy {
+  background-color: #2A2418;
+  border-top: 1px solid #E2C044;
+  color: #F8E9B5;
+}

@@ -211,11 +211,11 @@
     </ul>
   </nav>
 
-  <div class="language-switcher">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('es')">Español</button>
-    <button id="clearDataBtn">Clear My Data</button>
-  </div>
+  <div class="theme-switcher">
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('dark')">Dark</button>
+  <button id="clearDataBtn">Clear My Data</button>
+</div>
 
   <main>
     <div class="contact-header">
@@ -315,9 +315,35 @@
 
   <footer class="privacy">
     <h3>Privacy Statement</h3>
-    <p>This site saves your language preference locally to improve your experience. No personal data is collected, and you can clear saved preferences anytime.</p>
+    <p>This website uses local storage to remember your theme selection (light or dark mode). No cookies or personal data are collected. You can clear all saved preferences using the “Clear My Data” button.</p>
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+// === THEME SWITCHER ===
+
+// Save user's theme choice
+function setTheme(theme) {
+  localStorage.setItem('userTheme', theme);
+  document.body.className = theme;
+}
+
+// Load saved theme on page load
+window.addEventListener('load', function() {
+  const savedTheme = localStorage.getItem('userTheme') || 'light';
+  document.body.className = savedTheme;
+});
+
+// Clear saved data (theme + any others)
+const clearDataBtn = document.getElementById('clearDataBtn');
+if (clearDataBtn) {
+  clearDataBtn.addEventListener('click', () => {
+    localStorage.clear();
+    alert("Your saved data has been cleared!");
+    document.body.className = 'light';
+  });
+}
+</script>
 </body>
 </html>
