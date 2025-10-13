@@ -5,17 +5,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boulder County Beekeepers — Resources</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/today/style.css" defer>
 
   <style>
-    main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
-    .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
-    .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
-    li { line-height: 1.6; }
-    .nav-spacer { height: 8px; }
+    html { scroll-behavior: smooth; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      color: #1D1A05;
+    }
+
+    /* --- Title --- */
+    h1.resources-title {
+      text-align: center;
+      font-family: "Lexend", sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* --- Buttons --- */
+    .resources-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .resources-buttons button {
+      background: #E2C044;
+      border: 1.5px solid #1D1A05;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: "Lexend", sans-serif;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .resources-buttons button:hover {
+      background: #F8E9B5;
+      transform: scale(1.05);
+    }
+
+    /* --- Section boxes --- */
+    .boxed-section {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 28px 20px;
+      margin-top: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .boxed-section h2 {
+      text-align: center;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      border-bottom: 1.5px solid #1D1A05;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    /* --- FAQ Section --- */
+    #faqs {
+      text-align: center;
+    }
+    #faqs p {
+      text-align: center;
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* --- Local Groups --- */
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .section-text {
+      flex: 1 1 55%;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .section-image {
+      flex: 1 1 40%;
+      max-width: 480px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      display: block;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    ul a {
+      color: #1D1A05;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    ul a:hover {
+      color: #7a672e;
+    }
+
+    strong { font-weight: 700; }
+
+    /* --- Footer --- */
+    footer.privacy {
+      background: #E2C044;
+      border-top: 1px solid #1D1A05;
+      text-align: center;
+      padding: 16px;
+      margin-top: 60px;
+      color: #1D1A05;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer.privacy h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .section-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .section-text, .section-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -40,62 +193,52 @@
     <button id="clearDataBtn">Clear My Data</button>
   </div>
 
-  <main class="resources-grid">
-    <h1 class="resources-title" data-key="resourcesTitle">Resources</h1>
+  <main>
+    <h1 class="resources-title">Resources</h1>
 
-    <section class="panel resources-filters">
-      <h2 data-key="findResource">Find a Resource</h2>
-      <label for="resourceSearch" data-key="searchLabel">Search Keywords</label>
-      <input id="resourceSearch" class="filter-input" type="search" placeholder="Try: varroa, starter kit, plants">
-      <p id="resourcesStatus" class="status" aria-live="polite"></p>
+    <!-- Navigation Buttons -->
+    <div class="resources-buttons">
+      <button onclick="document.getElementById('faqs').scrollIntoView({behavior:'smooth'})">FAQs</button>
+      <button onclick="document.getElementById('local-groups').scrollIntoView({behavior:'smooth'})">Local Groups</button>
+    </div>
+
+    <!-- FAQs -->
+    <section class="boxed-section" id="faqs">
+      <h2>FAQs</h2>
+      <p><strong>There is a swarm of bees in my yard, what do I do?</strong><br>
+      Visit the Swarms page and call your area swarm hotline to find a beekeeper who can help you.</p>
+
+      <p><strong>I'm a new beekeeper. How can I get involved in your community?</strong><br>
+      The best way to connect with BCBA beekeepers is to attend a meeting. New members are always welcome. You’re also invited to join the BCBA email discussion list and check out our discussion forum.</p>
+
+      <p><strong>Where can I buy bees?</strong><br>
+      Bees are typically ordered in late winter or early spring for April delivery. You can connect with beekeepers organizing group orders at our February meeting or through our email discussion list.</p>
     </section>
 
-    <div class="resources-list" id="resourceContainer">
-      <section class="panel">
-        <h2 data-key="basicsTitle">Beekeeping Basics</h2>
-        <ul>
-          <li>Seasonal Checklist (Spring / Summer / Fall / Winter)</li>
-          <li>Starter Equipment List</li>
-          <li>Safety Tips and Protective Gear</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <h2 data-key="healthTitle">Hive Health</h2>
-        <ul>
-          <li>Varroa Mites — Monitoring & Treatment Overview</li>
-          <li>Common Diseases (AFB, EFB, Nosema) Quick Notes</li>
-          <li>Feeding and Nutrition Basics</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <h2 data-key="gardenTitle">Pollinator-Friendly Gardening</h2>
-        <ul>
-          <li>Native Plants & Bloom Timing</li>
-          <li>Pesticide Safety and Alternatives</li>
-          <li>Creating Habitat: Water, Shelter, Forage</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <h2 data-key="localTitle">Local Info</h2>
-        <ul>
-          <li>Local Regulations & HOA Considerations</li>
-          <li>Where to Find Supplies in Boulder County</li>
-          <li>Who to Contact for General Questions (See the Contact Page)</li>
-        </ul>
-      </section>
-    </div>
+    <!-- Local Groups -->
+    <section class="boxed-section" id="local-groups">
+      <h2>Local Groups</h2>
+      <div class="section-content">
+        <div class="section-text">
+          <p>Connect with other Colorado beekeeping groups:</p>
+          <ul>
+            <li><a href="http://www.coloradobeekeepers.org/" target="_blank">Colorado State Beekeepers Association</a></li>
+            <li><a href="http://home.comcast.net/~high.land.beekeeping.club/site/" target="_blank">High Land Beekeeping Club</a></li>
+            <li><a href="http://www.mountainhighbeekeepers.org/links.html" target="_blank">Mountain High Beekeepers' Cooperative</a></li>
+            <li><a href="http://www.nocobees.org/" target="_blank">Northern Colorado Beekeepers Association</a></li>
+            <li><a href="http://www.pikespeakbeekeepers.org/" target="_blank">Pikes Peak Beekeepers' Association</a></li>
+          </ul>
+        </div>
+        <div class="section-image">
+          <img src="https://images.unsplash.com/photo-1680951162363-07c5c60d95a7?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2070" alt="Bees gathering nectar from wildflowers">
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="privacy">
-    <h3 data-key="privacyTitle">Privacy Statement</h3>
-    <p data-key="privacyText">
-      This site stores your language preference locally to improve your experience. 
-      No personal or external data is collected. You can clear your saved preferences anytime. 
-      Stored preferences automatically expire after 7 days.
-    </p>
+    <h3>Privacy Statement</h3>
+    <p>This site saves your language preference locally to improve your experience. No personal data is collected, and you can clear saved preferences anytime.</p>
   </footer>
 
   <script src="script.js"></script>
