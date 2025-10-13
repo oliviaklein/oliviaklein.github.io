@@ -14,119 +14,268 @@
   <link rel="stylesheet" href="/WA5/style.css" defer>
 
   <style>
-    /* just a few layout tweaks */
-    main { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
-    .panel { background:#F1E1A7; color:#1D1A05; border:1px solid #1D1A05; border-radius:8px; padding:14px; margin-top:16px; }
-    .panel h2 { margin:0 0 8px 0; font-size:1.25rem; border-bottom:1px solid #1D1A05; padding-bottom:4px; }
-    .lead { line-height: 1.6; }
-    a.inline { color: inherit; text-decoration: underline; }
-    .nav-spacer { height: 8px; } 
+    html { scroll-behavior: smooth; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      color: #1D1A05;
+    }
+
+    /* --- Hero --- */
+    .home-hero {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 28px 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .home-hero h1 {
+      font-family: "Lexend", sans-serif;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+    .home-hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 750px;
+      margin: 0 auto 20px;
+    }
+    .home-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .home-buttons button {
+      background: #E2C044;
+      border: 1.5px solid #1D1A05;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: "Lexend", sans-serif;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .home-buttons button:hover {
+      background: #F8E9B5;
+      transform: scale(1.05);
+    }
+    .hero-image {
+      width: 100%;
+      border: 2px solid #1D1A05;
+      border-radius: 0;
+      display: block;
+      margin-top: 16px;
+    }
+
+    /* --- Section boxes --- */
+    .boxed-section {
+      background: #F1E1A7;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      padding: 28px 20px;
+      margin-top: 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .boxed-section h2 {
+      text-align: center;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      border-bottom: 1.5px solid #1D1A05;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .boxed-section p {
+      line-height: 1.6;
+      margin: 10px auto;
+      max-width: 800px;
+    }
+
+    /* --- Bee A Member --- */
+    #membership {
+      text-align: left;
+    }
+    #membership h2 {
+      text-align: center;
+      display: inline-block;
+      border-bottom: 1.5px solid #1D1A05;
+      padding-bottom: 8px;
+      margin: 0 auto 16px;
+    }
+    #membership .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    #membership .text {
+      flex: 1 1 60%;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    #membership .section-image {
+      flex: 1 1 35%;
+      max-width: 360px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #membership .section-image img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* --- History --- */
+    #history {
+      text-align: center;
+    }
+    #history .section-image {
+      margin: 20px auto;
+      max-width: 600px;
+      position: relative;
+    }
+    #history .section-image img {
+      width: 100%;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* --- Gallery --- */
+    #gallery { text-align: center; }
+    .gallery-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+      margin-top: 20px;
+    }
+    #gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid #1D1A05;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+    #gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    /* --- Footer --- */
+    footer.privacy {
+      background: #E2C044;
+      border-top: 1px solid #1D1A05;
+      text-align: center;
+      padding: 16px;
+      margin-top: 60px;
+      color: #1D1A05;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    footer.privacy h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- nav bar -->
   <nav class="main-nav">
-    <!-- language buttons -->
-    <div class="language-switcher">
-      <button onclick="setLanguage('en')">English</button>
-      <button onclick="setLanguage('es')">Español</button>
-      <button id="clearDataBtn">Clear My Data</button>
-    </div>
-
-
-
-    
-    <!-- popup message -->
-    <div id="popupMessage" class="popup-message">Your saved data has been cleared.</div>
-
-    <div class="nav-spacer"></div>
-
     <div class="nav-brand">Boulder County Beekeepers</div>
-
-
-
-
-    <!-- toggle menu -->
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
     </button>
-
-
-
-
-    <!-- nav links -->
     <ul class="nav-menu" id="navMenu">
-      <li><a href="/WA5/home.html">Home</a></li>
+      <li><a href="/WA5/home.html" aria-current="page">Home</a></li>
       <li><a href="/WA5/resources.html">Resources</a></li>
       <li><a href="/WA5/events.html">Events</a></li>
-      <li><a href="/WA5/contact.html" aria-current="page">Contact</a></li>
+      <li><a href="/WA5/contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <main class="home-grid">
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button id="clearDataBtn">Clear My Data</button>
+  </div>
 
-
-
-    
-    <!-- hero section -->
+  <main>
+    <!-- Hero -->
     <section class="home-hero">
-      <h1 data-key="title">Boulder County Beekeepers Association</h1>
-      <p class="lead" data-key="mission">
-        Our mission: “To foster responsible beekeeping in Boulder County, Colorado, through education,
-        public service and conscientious beekeeping.”
-      </p>
+      <h1>Boulder County Beekeepers Association</h1>
+      <p>Our mission is to foster responsible beekeeping in Boulder County, Colorado, through education, public service and conscientious beekeeping.</p>
+      <div class="home-buttons">
+        <button onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">Bee A Member</button>
+        <button onclick="document.getElementById('history').scrollIntoView({behavior:'smooth'})">Our History</button>
+        <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Photo Gallery</button>
+      </div>
+      <img class="hero-image" src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2190" alt="Bees gathering around a hive entrance in Boulder County">
     </section>
 
-
-
-
-    <!-- info panels -->
-    <section class="panel home-start">
-      <h2 data-key="startHere">Start Here</h2>
-      <p data-key="startText">
-        New or returning to beekeeping? Visit 
-        <a class="inline" href="BeeResources.html">Resources</a> 
-        for basics, checklists, and hive health info.
-      </p>
+    <!-- Bee A Member -->
+    <section id="membership" class="boxed-section" style="text-align:center;">
+      <h2>Bee A Member</h2>
+      <div class="section-content" style="text-align:left;">
+        <div class="text">
+          <p>Annual membership dues are per person, per calendar year. Dues are $18 for BCBA (Boulder County Beekeepers Association) and $7 for CSBA (Colorado State Beekeepers Association). Please pay $25 electronically.</p>
+          <p><strong>PayPal:</strong> @bouldercountybee</p>
+          <p>Contact treasurer to get further instructions, or use the QR code.</p>
+          <p>Alternatively, fill out the BCBA Membership Form and mail a check.</p>
+          <p><a href="#" style="text-decoration: underline;">BCBA Membership Form 2025</a></p>
+          <p>New members are welcome throughout the year.</p>
+        </div>
+        <div class="section-image">
+          <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/2022-BCBA-Booth-Liz-and-Mike-768x576.jpg" alt="BCBA members Liz and Mike at the 2022 Niwot Honey Bee Harvest Festival">
+        </div>
+      </div>
     </section>
 
+    <!-- History -->
+    <section id="history" class="boxed-section">
+      <h2>Our History</h2>
+      <p>In the late 1800’s and early 1900’s Boulder County was a major center for honey production in Colorado with a number of large commercial producers. In addition to large commercial operations most agricultural communities had one or more “community beekeepers.” These were individuals or families who secured all or part of a modest living through beekeeping. In the process of producing honey, beekeepers provided valuable pollination for orchards, gardens, field crops and wild plants. During this period Boulder County honey was shipped east by the carload as it was considered a great delicacy.</p>
+      
+      <div class="section-image">
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/history-photo1-570x355.jpg" alt="Historic beekeeping in Boulder County, Colorado">
+      </div>
 
-    <section class="panel home-next">
-      <h2 data-key="whatsNext">What’s Next</h2>
-      <p data-key="nextText">
-        See upcoming meetings and classes on 
-        <a class="inline" href="BeeEvents.html">Events</a>. 
-        If nothing’s posted yet, check back soon.
-      </p>
+      <p>Beekeeping has declined significantly here in the past 50 years and yet there remains a healthy community pursuing this arcane craft in Boulder County. The majority are hobbiests while a handful would qualify for the term “community beekeeper.” Most support their beekeeping or supplement their income through the sale of honey products in excess of their personal needs.</p>
+      <p>Fully one third of all we eat is dependent upon honey bee pollination. But beekeepers are struggling for survival in the face of changing land use, heavy use of agricultural pesticides and a market flooded with foreign honey. Your support of local beekeepers will help to keep alive this old and intricate craft as a part of the region’s agricultural heritage and bring to you the enjoyment of a honey long regarded as one of the finest in the United States.</p>
+      <p><em>— Tom Theobald, Boulder County Beekeepers’ Association</em></p>
     </section>
 
-
-    <section class="panel home-questions">
-      <h2 data-key="questions">Questions</h2>
-      <p data-key="questionsText">
-        Need help or have a general question? Head to 
-        <a class="inline" href="BeeContact.html">Contact</a>.
-      </p>
+    <!-- Gallery -->
+    <section id="gallery" class="boxed-section">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1641822888635-97d60ecd9acd?auto=format&fit=crop&q=80&w=1035" alt="Beekeeper inspecting frames in a hive">
+        <img src="https://images.unsplash.com/photo-1550170139-ed6b5e6b4c38?auto=format&fit=crop&q=80&w=1035" alt="Beekeeper working in the field">
+        <img src="https://images.unsplash.com/photo-1682435487817-97287a23462c?auto=format&fit=crop&q=80&w=1674" alt="Bee close-up collecting nectar">
+        <img src="https://images.unsplash.com/photo-1647427062468-74ff21e8934f?auto=format&fit=crop&q=80&w=2190" alt="Bees flying around hive entrance">
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/2022-BCBA-Booth-Liz-and-Mike-768x576.jpg" alt="BCBA members Liz and Mike">
+        <img src="https://www.bouldercountybeekeepers.org/wp-content/uploads/2011/02/history-photo1-570x355.jpg" alt="Historic beekeeping photo">
+        <img src="https://images.unsplash.com/photo-1621777935104-7e254b7fc598?auto=format&fit=crop&q=80&w=987" alt="Close-up of a bee collecting pollen">
+        <img src="https://images.unsplash.com/photo-1622380997944-c00207483cce?auto=format&fit=crop&q=80&w=2231" alt="Bee on a flower collecting nectar">
+      </div>
     </section>
   </main>
 
-
-
-  <!-- script -->
-  <script src="script.js"></script>
-
-
-
-
-  <!-- footer -->
   <footer class="privacy">
-    <h3 data-key="privacyTitle">Privacy Statement</h3>
-    <p data-key="privacyText">
-      This site stores your language preference locally to improve your experience. 
-      No personal or external data is collected. You can clear your saved preferences anytime. 
-      Stored preferences automatically expire after 7 days.
-    </p>
+    <h3>Privacy Statement</h3>
+    <p>This site saves your language preference locally to improve your experience. No personal data is collected, and you can clear saved preferences anytime.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
