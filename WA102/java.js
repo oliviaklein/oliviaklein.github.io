@@ -1,34 +1,36 @@
-let triviaBtn = document.querySelector("#js-new-quote") .addEventListener("click", newFact);
+let triviaBtn = document
+.querySelector("#js-new-quote") 
+.addEventListener("click", newSpell);
 
-let answerBtn = document.querySelector("#js-tweet") .addEventListener("click", newAnswer);
+let answerBtn = document
+.querySelector("#js-tweet") 
+.addEventListener("click", showUse);
 
 let current = {
-    question: "",
-    answer: "",
+    spell: "",
+    use: "",
 }
 
-async function newFact() {
+async function newSpell() {
    // console.log("Success");
 
    try {
-    const response = await fetch('https://dog.ceo/api/breeds/image/random');
-    const object = await response.json();
-    const dogPic = object['message'];
+    const response = await fetch("https://potterapi-fedeperin.vercel.app/en/spells/random");
 
-    if (!response.ok) {
+
+     if (!response.ok) {
       throw Error(response.statusText);
     }
+    
+    const data = await response.json();
 
+    const spellName = data.spell;
+    const spellUse = data.use;
 
+    current.spell = spellName;
+    current.use = spellUse;
 
-    console.log(object);
-    console.log(dogPic);
-    // displayTrivia(json["question"]);
-    // current.question = json["question"];
-    // current.answer = json["answer"];
-    // console.log(current.question);
-    // console.log(current.answer);
-
+    displaySpell(spellName);
 
 
    } catch (err) {
@@ -39,17 +41,17 @@ async function newFact() {
 
 
 
-function displayTrivia(question) {
+function displaySpell(spell) {
   const questionText = document.querySelector("#js-quote-text");
     const answerText = document.querySelector("#js-answer-text");
-  questionText.textContent = question;
+  questionText.textContent = spell;
   answerText.textContent = "";
 }
 
-function newAnswer() {
+function showUse() {
    // console.log("Success = answer!");
     const answerText = document.querySelector("#js-answer-text");
-    answerText.textContent = current.answer;
+    answerText.textContent = current.use;
 }
 
-newFact();
+newSpell();
