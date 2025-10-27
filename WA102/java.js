@@ -11,6 +11,8 @@ let current = {
     use: "",
 }
 
+let spellHistory = [];
+
 async function newSpell() {
    // console.log("Success");
 
@@ -29,6 +31,11 @@ async function newSpell() {
 
     current.spell = spellName;
     current.use = spellUse;
+
+    if (spellName) {
+      spellHistory.unshift(spellName);
+      updateHistory();
+    }
 
     displaySpell(spellName);
 
@@ -52,6 +59,19 @@ function showUse() {
    // console.log("Success = answer!");
     const answerText = document.querySelector("#js-answer-text");
     answerText.textContent = current.use;
+}
+
+function updateHistory() {
+  const list = document.querySelector("#spell-history");
+  list.innerHTML = "";
+
+  //show 5 spells history
+  const recent = spellHistory.slice(0, 5);
+  for (let spell of recent) {
+    const li = document.createElement("li");
+    li.textContent = spell;
+    list.appendChild(li);
+  }
 }
 
 newSpell();
