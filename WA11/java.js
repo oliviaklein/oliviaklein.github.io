@@ -34,6 +34,7 @@ async function getWeather() {
 
     cityDisplay.textContent = current.city;
     infoDisplay.textContent = "";
+    
 } catch (error) {
     cityDisplay.textContent = "";
     infoDisplay.textContent = "Could not find that city. Try again.";
@@ -43,3 +44,4 @@ async function getWeather() {
  function showDetails() {
     infoDisplay.textContent = current.info;
  }
+ 
