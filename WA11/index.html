@@ -9,8 +9,10 @@
 
 </head>
 <body>
-    <div class="app">
-        <header>GET WEATHER</header>
+    <main class="app">
+        <header>
+          <h1>WEATHER APP</h1>
+        </header>
         <section class="quotes">
           <div class="quote-text" id="js-quote-text"></div>
           <div class="quote-text" id="js-answer-text"></div>
@@ -18,16 +20,20 @@
 
 
         <section class="controls" >
+          <form>
             <input type="text" id="city-input" placeholder="Enter city name">
              <button type="button" id="js-new-quote" class="new-quote button">
             WEATHER</button>
             <button type="button" id="js-tweet" class="twitter button">SHOW DETAILS</button>
+          </form>
         </section>
-      </div>
+      </main>
 
+      <footer>
       <p style="text-align:center; font-size: 14px; padding:10px;">
       This website only uses the city name you enter to fetch public weather data from OpenWeatherMap. No personal data is collected or stored.
       </p>
+      </footer>
   
       <script src="java.js"></script>
 </body>
