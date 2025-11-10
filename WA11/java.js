@@ -29,7 +29,7 @@ async function getWeather() {
     const desc = data.weather[0].description;
     const humidity = data.main.humidity;
     
-    current.city = `${cityName}: ${temp}°C`;
+    current.city = `Temperature: ${temp.toFixed(1)}°F`;
     current.info = `Condition: ${desc}, Humidity: ${humidity}%`;
 
     cityDisplay.textContent = current.city;
