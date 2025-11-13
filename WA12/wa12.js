@@ -18,7 +18,6 @@ async function getWeather() {
   const apiKey = "ec2d56ad7c9c61b50a44ce3fcb6f60d8";
 
   try {
-    // 1. Get latitude and longitude using the Geocoding API
     const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
     const geoResponse = await fetch(geoUrl);
     if (!geoResponse.ok) throw Error("City not found");
@@ -27,7 +26,6 @@ async function getWeather() {
     if (!geoData.length) throw Error("City not found");
     const { lat, lon, name } = geoData[0];
 
-    // 2. Get weather data using lat/lon and imperial units (Fahrenheit)
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
     const weatherResponse = await fetch(weatherUrl);
     if (!weatherResponse.ok) throw Error("Weather data not available");
