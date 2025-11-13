@@ -50,3 +50,11 @@ async function getWeather() {
 function showDetails() {
   infoDisplay.textContent = current.info;
 }
+
+cityDisplay.textContent = current.city;
+cityDisplay.classList.add("fade");
+
+function showDetails() {
+  infoDisplay.textContent = current.info;
+  infoDisplay.classList.add("fade");
+}
