@@ -33,13 +33,16 @@ html {
   .quotes {
     padding: 60px 50px;
     min-height: 200px;
-    text-align: center;
+    text-align: left;
+    padding-left: 70px;
   }
   
   .quote-text {
     font-size: 25px;
     color: black;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   .controls {
