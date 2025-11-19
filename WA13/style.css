@@ -12,7 +12,7 @@ html, body {
 
 body {
   align-items: center;
-  background: #d6c18b;
+  background: #C8D29D;
   display: flex;
   justify-content: center;
   perspective-origin: 50% 50%;
@@ -32,7 +32,7 @@ body {
   width: 30px;
 }
 .butterfly::before {
-  background: #362c13;
+  background: #846C5B;
   border-radius: 50%;
   content: "";
   display: block;
@@ -98,10 +98,10 @@ body {
   z-index: 1;
 }
 .wing .bit {
-  background: dodgerblue;
+  background: #38369A;
 }
 .wing .bit::after {
-  background: #51a9ff;
+  background: #A288E3;
 }
 .wing .bit, .wing .bit::after {
   border-radius: 50%;
@@ -220,4 +220,14 @@ body {
 }
 .twitter:hover {
   background: #4fa1ff;
+}
+
+.title {
+  position: absolute;
+  top: 40px;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: #846C5B;
+  text-align: center;
+  width: 100%;
 }
