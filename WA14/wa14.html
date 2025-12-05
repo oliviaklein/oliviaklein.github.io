@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="wa12.css">
+
+
+</head>
+<body>
+    <main class="app">
+        <header>
+          <h2>WEATHER APP</h2>
+        </header>
+        <section class="quotes">
+          <div class="quote-text" id="js-quote-text">
+            
+          </div>
+          <div class="quote-text" id="js-answer-text"></div>
+        </section>
+
+
+        <section class="controls" >
+          <form>
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button type="button" id="js-new-quote" class="new-quote button">
+            WEATHER</button>
+            <button type="button" id="js-tweet" class="twitter button">SHOW DETAILS</button>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+      <p style="text-align:center; font-size: 14px; padding:10px;">
+      This website only uses the city name you enter to fetch public weather data from OpenWeatherMap. No personal data is collected or stored.
+      </p>
+      </footer>
+  
+      <script src="wa12.js"></script>
+</body>
+</html>
