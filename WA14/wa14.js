@@ -4,11 +4,17 @@ const input = document.getElementById("city-input");
 
 const cityDisplay = document.getElementById("js-quote-text");
 const infoDisplay = document.getElementById("js-answer-text");
+const messageDisplay = document.getElementById("js-message");
+const lastList = document.getElementById("last-cities");
 
 let current = {
   city: "",
-  info: "",
+  tempF: null,
+  desc: "",
+  humidity: "",
 };
+
+let lastCities = [];
 
 getBtn.addEventListener("click", getWeather);
 showBtn.addEventListener("click", showDetails);
@@ -35,26 +41,76 @@ async function getWeather() {
     const desc = data.weather[0].description;
     const humidity = data.main.humidity;
 
-    current.city = `${name}: ${temp.toFixed(1)}°F`;
-    current.info = `Condition: ${desc}, Humidity: ${humidity}%`;
+    // current.city = `${name}: ${temp.toFixed(1)}°F`;
+    // current.info = `Condition: ${desc}, Humidity: ${humidity}%`;
+
+    current.city = name;
+    current.tempF = temp;
+    current.desc = desc;
+    current.humidity = humidity;
 
     cityDisplay.textContent = current.city;
+
+    messageDisplay.textContent = getTempMessage(current.tempF);
+
     infoDisplay.textContent = "";
+
+    document.getElementById("weather-box").style.opacity = "1";
+    updateLastCities(current.city);
+
+
+    showBtn.style.display = "inline-block";
+
 
   } catch (error) {
     cityDisplay.textContent = "";
+    messageDisplay.textContent = "";
     infoDisplay.textContent = "Could not find that city. Try again.";
+    document.getElementById("weather-box").style.opacity = "0";
+    showBtn.style.display = "none";
   }
 }
 
-function showDetails() {
-  infoDisplay.textContent = current.info;
+function getTempMessage(tempF) {
+    if (tempF < 32) {
+        return "BRRR, get out your winter jacket!";
+    } else if (tempF < 60) {
+        return "A bit chilly, wear a sweater!";
+    } else if (tempF < 80) {
+        return "Lovely weather!";
+    } else {
+        return "It's hot outside, stay hydrated!";
+    }
 }
 
-cityDisplay.textContent = current.city;
-cityDisplay.classList.add("fade");
 
 function showDetails() {
-  infoDisplay.textContent = current.info;
-  infoDisplay.classList.add("fade");
+    if (current.tempF === null) {
+     infoDisplay.textContent = "No weather data available.";
+        return;
+    }
+
+    infoDisplay.innerHTML =
+    `Temperature: ${current.tempF.toFixed(1)}°F<br>
+    Condition: ${current.desc}<br>
+    Humidity: ${current.humidity}%`;
+
+    infoDisplay.classList.add("fade");
+}
+
+
+function updateLastCities(cityName) {
+    if (!cityName) return;
+    lastCities=lastCities.filter(c => c !== cityName);
+    lastCities.unshift(cityName);
+    if (lastCities.length > 3) {
+        lastCities=lastCities.slice(0, 3);
+    }
+    lastList.innerHTML = "";
+    lastCities.forEach((city) => {
+        const li = document.createElement("li");
+        li.textContent = city;
+        lastList.appendChild(li);
+    });
+    document.getElementById("last-box").style.opacity = "1";
 }

@@ -2,6 +2,15 @@ html {
     box-sizing: border-box;
   }
   
+  /* color pallet
+#293241 /* dark blue */
+#3D5A80 /* medium blue */
+#95B2B0 /* light grey */
+#FFE882 /* dark yellow */
+#F0F3BD /* light yellow */
+#AF7A6D /* light brown */
+
+
   *, *::before, *::after {
     box-sizing: inherit;
     margin: 0;
@@ -11,55 +20,62 @@ html {
   body {
     font-family: dm sans, sans-serif;
     background-color: #7FA9C7;
+    padding-bottom: 80px;
   }
   
   .app {
     width: 600px;
     max-width: 600px;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    margin: 60px auto;
+    /* box-shadow: 0 2px 6px rgba(0,0,0,0.2); */
+    margin: 20px auto;
     padding-bottom: 30px;
     }
   
   header {
     font-size: 30px;
     text-align: center;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border-bottom: none;
   }
   
   .quotes {
-    padding: 60px 50px;
-    min-height: 200px;
+    padding: 5px 20px;
+    min-height: 0px;
     text-align: left;
-    padding-left: 70px;
+    padding-left: 20px;
   }
   
   .quote-text {
     font-size: 25px;
-    color: black;
+    color: 293241;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
   }
   
   .controls {
-    padding: 20px 50px;
+    padding: 10px 30px;
   }
+
+  .controls form {
+    text-align: center;
+  }
+
 
   input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 3px #293241;
+    /* box-shadow: navy 4px 4px 4px 4px; */
   }
   
   .button {
     display: block;
-    color: black;
+    color: #293241;
     border-radius: 4px;
     border: none;
     padding: 10px 20px;
@@ -67,29 +83,51 @@ html {
     text-align: center;
     width: 100%;
     font-size: 20px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 #293241, 0 3px 1px -2px #293241, 0 1px 5px 0 #293241;
   }
   
   
   .new-quote {
-    background-color: #7FA9C7;
+    background-color: #F4D06F;
     margin-bottom: 15px;
+    width: 104%;
+    box-sizing: border-box;
+    transition: transform 0.2s, background-color 0.2s;
   }
   
   .new-quote:hover {
-    background-color: #95B8D1;
+    transform: translateY(-3px);
+    background-color: #DC965A;
   }
 
+.new-quote:active {
+    transform: scale(0.95);
+    }
 
     .twitter {
-    background-color: #EDE05A;
-    text-decoration: none;
+    background-color: #F4D06F;
+    color: #293241;
+    font-weight: 600;
+    font-size: 16px;
+
+    display: inline-block;
+    width: auto;
+    margin: 15px auto 16px;
+    padding-bottom: 8px;
+    text-align: center;
+    box-shadow: 0 3px 9px #293241;
+
+    transition: transform 0.2s, background-color 0.3s;
   }
   
   .twitter:hover {
-    background-color: #F1E77E;
+    background-color: #DC965A;
+    transform: translateY(-2px);
   }
 
+  .twitter:active {
+    transform: scale(0.95);
+  }
 
   .button{
   transition: background-color 0.3s, transform 0.2s;
@@ -98,3 +136,106 @@ html {
   .button:active {
     transform: scale(0.98);
   }
+
+  /* logo */
+  header img.logo {
+    width: 600px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 10px auto 10px auto;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .city-display {
+   margin-top: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    /* color: black; */
+  }
+
+  .message-display {
+    margin-top: 6px;
+    /* margin-bottom: 5px; */
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    font-style: italic;
+    /* color: black; */
+  }
+
+  /* hiding show details button until the city and message pop up */
+  #js-tweet {
+    display: none;
+  }
+
+
+/* box around info that pops up after you click get weather — */
+  .weather-box {
+  background-color: #E3F2FD;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 12px auto 16px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 12px #293241;
+  opacity: 0;      
+  transition: opacity 0.4s ease;
+}
+
+.info-display {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;  }
+
+
+    footer {
+        position: fixed;
+        bottom: 0 ;
+        left: 0;
+        width: 100%;
+        background-color: #E3F2FD;
+        text-align: center;
+        border: #293241 solid 1px;
+        padding: 4px 4px;
+        font-size: 10px;
+        box-shadow: 0px, -12px, 6px #293241;
+    }
+
+
+    .last-box {
+      padding: 12px 20px;
+      margin: 0 auto 0;
+      width: 90%;
+      max-width: 400px;
+     border-radius: 14px;
+     text-align: center;
+    opacity: 0;      
+    transition: opacity 0.4s ease;    }
+
+    .last-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #293241;
+    }
+
+    .last-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      color: #293241;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .last-list li {
+      padding: 6px 10px;
+      border-radius: 4px;    }

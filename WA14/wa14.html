@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="wa12.css">
+    <link rel="stylesheet" href="wa14.css">
 
 
 </head>
 <body>
     <main class="app">
+
         <header>
-          <h2>WEATHER APP</h2>
+          <img src="assets/weatherlogo.png" alt="Weather App Logo" class="logo">
         </header>
-        <section class="quotes">
-          <div class="quote-text" id="js-quote-text">
-            
-          </div>
-          <div class="quote-text" id="js-answer-text"></div>
-        </section>
 
 
         <section class="controls" >
           <form>
-            <input type="text" id="city-input" placeholder="Enter city name">
+            <input type="text" id="city-input" placeholder="Enter city">
+
             <button type="button" id="js-new-quote" class="new-quote button">
-            WEATHER</button>
-            <button type="button" id="js-tweet" class="twitter button">SHOW DETAILS</button>
+            SEARCH WEATHER</button>
+
+            <div id="weather-box" class="weather-box">
+                <div id="js-quote-text" class="city-display"></div>
+                <div id="js-message" class="message-display"></div>
+                <button type="button" id="js-tweet" class="twitter button">SHOW DETAILS</button>
+                <div id="js-answer-text" class="info-display"></div>
+             </div>
+
+                <div id="last-box" class="last-box">
+                    <p class="last-title">Previous searches</p>
+                    <ul id="last-cities" class="last-list"></ul>
+                </div>
+                </section>
           </form>
+
+
+
+
         </section>
       </main>
 
@@ -37,6 +49,6 @@
       </p>
       </footer>
   
-      <script src="wa12.js"></script>
+      <script src="wa14.js"></script>
 </body>
 </html>
