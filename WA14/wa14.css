@@ -18,7 +18,7 @@ html {
   }
   
   body {
-    font-family: dm sans, sans-serif;
+  font-family: "DM Sans", sans-serif;
     background-color: #7FA9C7;
     padding-bottom: 80px;
   }
@@ -63,14 +63,14 @@ html {
     text-align: center;
   }
 
-
+/* search bar for cities */
   input {
     width: 100%;
     padding: 10px;
     margin-bottom: 12px;
-    border-radius: 4px;
-    border: 3px #293241;
-    /* box-shadow: navy 4px 4px 4px 4px; */
+    border-color: #293241;
+    border-radius: 1px;
+    /* border: 3px #293241; */
   }
   
   .button {
@@ -86,10 +86,11 @@ html {
     box-shadow: 0 2px 2px 0 #293241, 0 3px 1px -2px #293241, 0 1px 5px 0 #293241;
   }
   
-  
+    /* new quote = "search weather" button*/
   .new-quote {
     background-color: #F4D06F;
     margin-bottom: 15px;
+    font-weight: 600;
     width: 104%;
     box-sizing: border-box;
     transition: transform 0.2s, background-color 0.2s;
@@ -104,6 +105,8 @@ html {
     transform: scale(0.95);
     }
 
+
+    /* twitter = "show details" button */
     .twitter {
     background-color: #F4D06F;
     color: #293241;
@@ -137,7 +140,7 @@ html {
     transform: scale(0.98);
   }
 
-  /* logo */
+  /* logo image stuff */
   header img.logo {
     width: 600px;
     max-width: 90%;
@@ -147,6 +150,7 @@ html {
     animation: fadeIn 2s ease-in-out;
   }
 
+  /* city in box displayed larger */
   .city-display {
    margin-top: 15px;
     font-size: 32px;
@@ -155,6 +159,8 @@ html {
     /* color: black; */
   }
 
+    
+  /* weather commentary */
   .message-display {
     margin-top: 6px;
     /* margin-bottom: 5px; */
@@ -186,6 +192,8 @@ html {
   transition: opacity 0.4s ease;
 }
 
+
+  /* weather "details" (temp, humid, conditions) */
 .info-display {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -194,6 +202,7 @@ html {
     text-align: center;  }
 
 
+  /* data disclosure */
     footer {
         position: fixed;
         bottom: 0 ;
@@ -208,6 +217,7 @@ html {
     }
 
 
+    /* previously searched cities listed at bottom, only 3 at a time */
     .last-box {
       padding: 12px 20px;
       margin: 0 auto 0;
@@ -239,3 +249,29 @@ html {
     .last-list li {
       padding: 6px 10px;
       border-radius: 4px;    }
+
+    /* clear button for city search history */
+    .clear-button {
+      margin-top: 12px;
+      padding: 6px 12px;
+      font-size: 12px;
+      background-color: #F4D06F;
+      color: #293241;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .clear-button:hover {
+      background-color: #DC965A;
+      transform: translateY(-2px);
+    }
+
+    .clear-button:active {
+      transform: scale(0.95);
+    }
+    
+    .hidden {
+      display: none;
+    }

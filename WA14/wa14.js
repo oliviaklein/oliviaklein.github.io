@@ -6,6 +6,7 @@ const cityDisplay = document.getElementById("js-quote-text");
 const infoDisplay = document.getElementById("js-answer-text");
 const messageDisplay = document.getElementById("js-message");
 const lastList = document.getElementById("last-cities");
+const clearBtn = document.getElementById("clear-history");
 
 let current = {
   city: "",
@@ -18,6 +19,7 @@ let lastCities = [];
 
 getBtn.addEventListener("click", getWeather);
 showBtn.addEventListener("click", showDetails);
+clearBtn.addEventListener("click", clearHistory) 
 
 async function getWeather() {
   const city = input.value.trim() || "Boulder";
@@ -71,6 +73,7 @@ async function getWeather() {
   }
 }
 
+// generate message based on temperature that will pop up with city 
 function getTempMessage(tempF) {
     if (tempF < 32) {
         return "BRRR, get out your winter jacket!";
@@ -83,7 +86,7 @@ function getTempMessage(tempF) {
     }
 }
 
-
+// show weather details when button clicked
 function showDetails() {
     if (current.tempF === null) {
      infoDisplay.textContent = "No weather data available.";
@@ -98,7 +101,7 @@ function showDetails() {
     infoDisplay.classList.add("fade");
 }
 
-
+// history
 function updateLastCities(cityName) {
     if (!cityName) return;
     lastCities=lastCities.filter(c => c !== cityName);
@@ -112,5 +115,14 @@ function updateLastCities(cityName) {
         li.textContent = city;
         lastList.appendChild(li);
     });
+
     document.getElementById("last-box").style.opacity = "1";
+    clearBtn.classList.remove("hidden");
 }
+
+// clear search history button
+function clearHistory() {
+    lastCities = [];
+    lastList.innerHTML = "";
+    clearBtn.classList.add("hidden");
+    document.getElementById("last-box").style.opacity = "0"; }
