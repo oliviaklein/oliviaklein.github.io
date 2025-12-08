@@ -22,7 +22,7 @@ showBtn.addEventListener("click", showDetails);
 clearBtn.addEventListener("click", clearHistory) 
 
 async function getWeather() {
-  const city = input.value.trim() || "Boulder";
+  const city = input.value.trim() || "New York";
   const apiKey = "ec2d56ad7c9c61b50a44ce3fcb6f60d8";
 
   try {
@@ -125,4 +125,31 @@ function clearHistory() {
     lastCities = [];
     lastList.innerHTML = "";
     clearBtn.classList.add("hidden");
-    document.getElementById("last-box").style.opacity = "0"; }
+    document.getElementById("last-box").style.opacity = "0"; 
+
+    cityDisplay.textContent = "";
+    messageDisplay.textContent = "";
+    infoDisplay.textContent = "";
+
+    current = {
+      city: "",
+      tempF: null,
+      desc: "",
+      humidity: "",
+    };
+
+    document.getElementById("weather-box").style.opacity = "0";
+    showBtn.style.display = "none";
+
+    input.value = "";
+}
+
+// // from WA5 clear data button
+// const clearDataBtn = document.getElementById('clearDataBtn');
+// if (clearDataBtn) {
+//   clearDataBtn.addEventListener('click', () => {
+//     localStorage.clear();
+//     alert("Your saved data has been cleared!");
+//     document.body.className = 'light';
+// //   });
+// // }
