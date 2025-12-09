@@ -49,7 +49,7 @@ html {
   
   .quote-text {
     font-size: 25px;
-    color: 293241;
+    color: #293241;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@ html {
     font-weight: 600;
     width: 104%;
     box-sizing: border-box;
-    transition: transform 0.2s, background-color 0.2s;
+    /* transition: transform 0.2s, background-color 0.2s; */
   }
   
   .new-quote:hover {
@@ -120,7 +120,7 @@ html {
     text-align: center;
     box-shadow: 0 3px 9px #293241;
 
-    transition: transform 0.2s, background-color 0.3s;
+    /* transition: transform 0.2s, background-color 0.3s; */
   }
   
   .twitter:hover {
@@ -132,9 +132,6 @@ html {
     transform: scale(0.95);
   }
 
-  .button{
-  transition: background-color 0.3s, transform 0.2s;
-  }
 
   .button:active {
     transform: scale(0.98);
@@ -189,7 +186,7 @@ html {
   text-align: center;
   box-shadow: 0 6px 12px #293241;
   opacity: 0;      
-  transition: opacity 0.4s ease;
+  /* transition: opacity 0.4s ease; */
 }
 
 
@@ -226,7 +223,8 @@ html {
      border-radius: 14px;
      text-align: center;
     opacity: 0;      
-    transition: opacity 0.4s ease;    }
+    /* transition: opacity 0.4s ease;     */
+  }
 
     .last-title {
       font-size: 16px;
@@ -260,7 +258,7 @@ html {
       border: none;
       border-radius: 20px;
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s;
+      /* transition: transform 0.2s, background-color 0.2s; */
     }
 
     .clear-button:hover {
@@ -275,3 +273,16 @@ html {
     .hidden {
       display: none;
     }
+
+  /* last cities clickable buttons */
+  .history-item {
+  padding: 6px 10px;    
+  border-radius: 20px;
+  border: 1px solid #293241;
+  background-color: #E3F2FD;
+  cursor: pointer;
+  /* transition: background-color 0.2s, transform 0.2s; */
+  }
+
+  .history-item:hover {
+    background-color: #FFE882;  }

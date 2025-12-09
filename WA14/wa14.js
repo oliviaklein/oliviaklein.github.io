@@ -113,9 +113,18 @@ function updateLastCities(cityName) {
     lastCities.forEach((city) => {
         const li = document.createElement("li");
         li.textContent = city;
-        lastList.appendChild(li);
+
+    li.classList.add("history-item");
+
+   li.addEventListener("click", () => {
+        input.value = city;
+        getWeather();
     });
 
+    lastList.appendChild(li);
+    });
+
+    
     document.getElementById("last-box").style.opacity = "1";
     clearBtn.classList.remove("hidden");
 }
